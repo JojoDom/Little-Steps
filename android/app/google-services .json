@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "157971979229",
+    "project_id": "little-steps-montessori",
+    "storage_bucket": "little-steps-montessori.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:157971979229:android:91915548663b2a060e7434",
+        "android_client_info": {
+          "package_name": "com.example.little_steps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "157971979229-o5g2maoj5c671ceg33mhpr11l9h1q8rm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBrJx5ylxFxzcQD81WKfdStUdBePX4nGsw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "157971979229-o5g2maoj5c671ceg33mhpr11l9h1q8rm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
