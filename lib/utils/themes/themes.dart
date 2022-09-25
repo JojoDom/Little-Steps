@@ -5,7 +5,7 @@ import 'package:google_fonts/google_fonts.dart';
 class Themes {
   //light theme scheme
   Gradient primaryGradient = const LinearGradient(
-    colors: [Color(0xFF43C23F), Color(0xFFA5D037)],
+    colors: [Color(0xFFE2202C), Color(0xFFE7979C)],
   );
   final lightTheme = ThemeData(
     fontFamily: "SFProDisplay",
@@ -14,8 +14,8 @@ class Themes {
       primaryColor: const Color(0xFF43C23F),
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
-        primary: Color(0xFF43C23F),
-        secondary: Color(0xFFA5D037),
+        primary: Color(0xFFE2202C),
+        secondary: Color(0xFFE7979C),
       ),
       textTheme: GoogleFonts.outfitTextTheme());
 
