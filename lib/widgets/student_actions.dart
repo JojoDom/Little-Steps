@@ -16,18 +16,21 @@ class StudentActions extends StatelessWidget {
       onTap: onTap,
       child: SizedBox(
         height: 100,
-        width: 200,
-        child: Card(
-          color: const Color.fromARGB(255, 226, 203, 203),
-          child: Center(
-            child: ListTile(
-              leading: icon,
-              title: Text(
-                text,
-                style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                    color: Colors.white,
-                    fontWeight: FontWeight.w600,
-                    fontSize: 14),
+        width: MediaQuery.of(context).size.width*0.5,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Card(
+            color: const Color.fromARGB(255, 226, 203, 203),
+            child: Center(
+              child: ListTile(
+                leading: icon,
+                title: Text(
+                  text,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 12),
+                ),
               ),
             ),
           ),
