@@ -12,7 +12,6 @@ abstract class AuthService extends ChopperService {
 
   @Post(path: '/login')
   Future<Response> login(
-  @Header('authorization') String accessToken,
   @Body() Map<String, dynamic> body); 
 
 

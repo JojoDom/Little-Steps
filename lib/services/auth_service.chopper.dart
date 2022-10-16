@@ -31,16 +31,10 @@ class _$AuthService extends AuthService {
   }
 
   @override
-  Future<Response<dynamic>> login(
-      String accessToken, Map<String, dynamic> body) {
+  Future<Response<dynamic>> login(Map<String, dynamic> body) {
     final $url = '/auth/login';
-    final $headers = {
-      'authorization': accessToken,
-    };
-
     final $body = body;
-    final $request =
-        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+    final $request = Request('POST', $url, client.baseUrl, body: $body);
     return client.send<dynamic, dynamic>($request);
   }
 }
