@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:little_steps/models/authenticate_user.dart';
 import 'package:little_steps/screens/home_page.dart';
 import 'package:little_steps/services/auth_service.dart';
+import 'package:little_steps/utils/storage_keys.dart';
 import 'package:logger/logger.dart';
+import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
 import '../utils/connectivity_service.dart';
 
@@ -13,7 +15,7 @@ class LoginController extends GetxController {
   final passwordController = TextEditingController();
   var isLoggedIn = false.obs;
   var logger = Logger();
-
+  final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
   @override
   void onInit() {
     authService = Get.put(AuthService.create());
@@ -32,7 +34,11 @@ class LoginController extends GetxController {
         isLoggedIn(false);
         try {
           final loginRes = AuthenticateUser.fromJson(value.body);
+          var accessToken = loginRes.accessToken;
           Get.offAll(const HomePage());
+          secureStorage.write(
+              key: StorageKeys.ACCESS_TOKEN, value: accessToken);
+          secureStorage.write(key: StorageKeys.IS_LOGGED_IN, value: 'True');
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);
@@ -40,7 +46,7 @@ class LoginController extends GetxController {
         }
       } else {
         Get.snackbar('', 'Login Failed');
-         isLoggedIn(false);
+        isLoggedIn(false);
       }
     });
   }

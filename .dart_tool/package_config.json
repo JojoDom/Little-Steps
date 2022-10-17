@@ -236,6 +236,42 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_secure_storage",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage-6.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_linux",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_linux-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_macos",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_macos-1.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_platform_interface",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_platform_interface-1.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_web",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_web-1.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_secure_storage_windows",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_secure_storage_windows-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_spinkit",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_spinkit-5.1.0",
       "packageUri": "lib/",
@@ -614,7 +650,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-10-15T23:47:10.891425Z",
+  "generated": "2022-10-16T20:04:35.672673Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
