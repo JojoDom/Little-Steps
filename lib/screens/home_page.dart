@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/screens/login.dart';
-import 'package:little_steps/utils/scancode.dart';
-import 'package:little_steps/widgets/student_actions_bottom_sheet_modal.dart';
+import 'package:little_steps/utils/scan_student_qr_code.dart';
 import '../widgets/student_actions.dart';
 
 class HomePage extends StatefulWidget {
@@ -19,116 +17,53 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         elevation: 0,
-        backgroundColor: Colors.white,
-        title: Text(
-          'Little Steps Montessori',
-          style: Theme.of(context)
-              .textTheme
-              .bodyMedium!
-              .copyWith(color: Colors.black, fontSize: 18),
-        ),
+        backgroundColor: Colors.white,      
         centerTitle: true,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            StudentActions(
-              icon: const Icon(
-                Icons.check_circle,
-                size: 30,
-                color: Colors.red,
-              ),
-              onTap: () {
-                Get.to(const Scanner());
-              },
-              text: 'SCAN',
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: ListView(
+        children: [          
+          Stack(
+            children: [            
+              Column(
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                StudentActions(
-                  icon: const Icon(
-                    Icons.check_circle,
-                    size: 30,
-                    color: Colors.red,
-                  ),
-                  onTap: () {
-                    StudentActionsModal().action(isCheckIn: true);
-                  },
-                  text: 'CHECK-IN',
-                ),
-                StudentActions(
-                  icon: const Icon(
-                    Icons.check_circle,
-                    size: 30,
-                    color: Colors.red,
-                  ),
-                  onTap: () {
-                    StudentActionsModal().action(isCheckIn: false);
-                  },
-                  text: 'CHECK-OUT',
-                ),
+                  SizedBox( height: MediaQuery.of(context).size.height*0.35,),
+                Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                 children: [
+                   StudentActions(
+                     icon: const Icon(
+                       Icons.login_rounded,
+                       size: 30,
+                       color: Colors.red,
+                     ),
+                     onTap: () {
+                       Get.to(const ScanStudentQrCode(isCheckIn: true,));
+                     },
+                     text: 'CHECK-IN',
+                   ),
+                   StudentActions(
+                     icon: const Icon(
+                      Icons.logout_rounded,
+                       size: 30,
+                       color: Colors.red,
+                     ),
+                     onTap: () {
+                       Get.to(const ScanStudentQrCode(isCheckIn: false,)); 
+                     },
+                     text: 'CHECK-OUT',
+                   ),
+                 ],
+            ),
+                            
               ],
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                StudentActions(
-                  icon: const Icon(
-                    Icons.check_circle,
-                    size: 30,
-                    color: Colors.red,
-                  ),
-                  onTap: () {},
-                  text: 'ARRIVED STUDENTS',
-                ),
-                StudentActions(
-                  icon: const Icon(
-                    Icons.check_circle,
-                    size: 30,
-                    color: Colors.red,
-                  ),
-                  onTap: () {},
-                  text: 'DEPARTED STUDENTS',
-                ),
-              ],
-            ),
-            const SizedBox(
-              height: 10,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                StudentActions(
-                  icon: const Icon(
-                    Icons.check_circle,
-                    size: 30,
-                    color: Colors.red,
-                  ),
-                  onTap: () {},
-                  text: 'FIND STUDENT',
-                ),
-                StudentActions(
-                  icon: const Icon(
-                    Icons.check_circle,
-                    size: 30,
-                    color: Colors.red,
-                  ),
-                  onTap: () {
-                    Get.offAll(const Login());
-                  },
-                  text: 'LOG-OUT',
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
-    );
+           Container(
+             margin: EdgeInsets.symmetric(horizontal: 10),
+             child: Image.asset('assets/images/montessori.png',)), ]),
+        ]));
   }
 }

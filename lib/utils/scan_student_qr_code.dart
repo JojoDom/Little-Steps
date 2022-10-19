@@ -3,14 +3,14 @@ import 'package:get/get.dart';
 import 'package:little_steps/controllers/student_checkin_controller.dart.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
-class Scanner extends StatefulWidget {
-  const Scanner({Key? key}) : super(key: key);
-
+class ScanStudentQrCode extends StatefulWidget {
+  const ScanStudentQrCode({Key? key, required this.isCheckIn}) : super(key: key);
+ final bool isCheckIn;
   @override
-  State<Scanner> createState() => _ScannerState();
+  State<ScanStudentQrCode> createState() => _ScanStudentQrCodeState();
 }
 
-class _ScannerState extends State<Scanner> {
+class _ScanStudentQrCodeState extends State<ScanStudentQrCode> {
   MobileScannerController cameraController = MobileScannerController();
   bool _screenOpened = false;
 
@@ -68,13 +68,13 @@ class _ScannerState extends State<Scanner> {
       final String code = barcode.rawValue ?? "---";
       debugPrint('Barcode found! $code');
       _screenOpened = true;
-      Get.to(FoundCodeScreen(value: code, screenClosed: _screenWasClosed));
-      // Navigator.push(
-      //     context,
-      //     MaterialPageRoute(
-      //       builder: (context) =>
-      //           FoundCodeScreen(screenClosed: _screenWasClosed, value: code),
-      //     ));
+       if(widget.isCheckIn){
+         Get.to(FoundCodeScreen(value: code, screenClosed: _screenWasClosed));
+       }else{
+         Get.to(CheckOut(value: code, screenClosed: _screenWasClosed));
+       }
+      
+      
     }
   }
 
@@ -101,6 +101,67 @@ class _FoundCodeScreenState extends State<FoundCodeScreen> {
   @override
   initState() {
     checkInStudentController.studentCheckIn(studentCode: widget.value);
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text("Found Code"),
+        centerTitle: true,
+        leading: IconButton(
+          onPressed: () {
+            widget.screenClosed();
+            Get.back();
+          },
+          icon: const Icon(
+            Icons.arrow_back_outlined,
+          ),
+        ),
+      ),
+      body: Obx(
+        () => Center(
+          child: Padding(
+            padding: const EdgeInsets.all(20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Text('checking in student'),
+                checkInStudentController.isCheckInStudent.isFalse
+                    ? const LinearProgressIndicator(
+                        color: Colors.red,
+                      )
+                    : const SizedBox(
+                        height: 20,
+                      ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class CheckOut extends StatefulWidget {
+  final String value;
+  final Function() screenClosed;
+  const CheckOut({
+    Key? key,
+    required this.value,
+    required this.screenClosed,
+  }) : super(key: key);
+
+  @override
+  State<CheckOut> createState() => _CheckOutState();
+}
+
+class _CheckOutState extends State<CheckOut> {
+  final checkInStudentController = Get.put(CheckInStudentController());
+  @override
+  initState() {
+    checkInStudentController.studentCheckOut(studentCode: widget.value);
     super.initState();
   }
 

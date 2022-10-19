@@ -29,4 +29,17 @@ class CheckInStudentController extends GetxController {
       }
     });
   }
+  studentCheckOut({required studentCode}) async {
+    isCheckInStudent(false);
+    var accessToken =
+        await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
+    await studentsService.checkOut(accessToken, studentCode).then((value) {
+      if (value.isSuccessful) {
+        isCheckInStudent(true);
+        studentCheckInSuccess();
+      } else {
+        Get.snackbar('Error', 'Failed to check in student');
+      }
+    });
+  }
 }
