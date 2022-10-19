@@ -99,16 +99,16 @@ class _LoginState extends State<Login> {
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
         child: 
-        //Obx(() => 
+        Obx(() => 
         CustomButton(
             buttonText: 'Login',
             textColor: Colors.white,
             onTap: () async {
               if(_formKey.currentState!.validate()){
-                // await loginController.login(
-                //   userName: loginController.userNameController.text,
-                //   password: loginController.passwordController.text);
-             Get.offAll(const DashBoard());
+                await loginController.login(
+                  userName: loginController.userNameController.text,
+                  password: loginController.passwordController.text);
+             
               }            
             },
             gradient: const LinearGradient(
@@ -116,7 +116,7 @@ class _LoginState extends State<Login> {
                 end: Alignment.centerRight,
                 colors: [Color(0xFFE2202C), Color(0xFFE7979C)]),
             isBusy: loginController.isLoggedIn.value)),
-      //),
+    ),
     );
   }
 }

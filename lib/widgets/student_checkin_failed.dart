@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/screens/dashboard.dart';
-import 'package:little_steps/screens/home_page.dart';
 import 'package:little_steps/widgets/custom_button.dart';
 
-studentCheckInSuccess() {
+studentCheckInFailed() {
   Get.defaultDialog(
     backgroundColor: Colors.white,
     barrierDismissible: false,
@@ -14,15 +13,15 @@ studentCheckInSuccess() {
       child: Column(
         children: [
           SvgPicture.asset(
-            'assets/svgs/success_check.svg',
+            'assets/svgs/delete_account.svg',
             height: 50,
-            color: Colors.green,
+            color: Colors.red,
           ),
           const SizedBox(
             height: 25,
           ),
           Text(
-            'Student Check In Successful',
+            "Student Check-In failed",
             style: Theme.of(Get.context!)
                 .textTheme
                 .titleMedium!
@@ -32,7 +31,7 @@ studentCheckInSuccess() {
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 15),
             child: CustomButton(
-                buttonText: "Okay",
+                buttonText: "Try again",
                 textColor: Colors.white,
                 buttonColor: Colors.green,
                 onTap: () {

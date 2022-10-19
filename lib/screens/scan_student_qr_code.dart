@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/student_checkin_controller.dart.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
@@ -18,7 +19,7 @@ class _ScanStudentQrCodeState extends State<ScanStudentQrCode> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Check In Student"),
+        title: const Text("Scan Student Code"),
         actions: [
           IconButton(
             color: Colors.white,
@@ -37,7 +38,7 @@ class _ScanStudentQrCodeState extends State<ScanStudentQrCode> {
             onPressed: () => cameraController.toggleTorch(),
           ),
           IconButton(
-            color: Colors.white,
+            color: Colors.grey,
             icon: ValueListenableBuilder(
               valueListenable: cameraController.cameraFacingState,
               builder: (context, state, child) {
@@ -69,7 +70,7 @@ class _ScanStudentQrCodeState extends State<ScanStudentQrCode> {
       debugPrint('Barcode found! $code');
       _screenOpened = true;
        if(widget.isCheckIn){
-         Get.to(FoundCodeScreen(value: code, screenClosed: _screenWasClosed));
+         Get.to(CheckIn(value: code, screenClosed: _screenWasClosed));
        }else{
          Get.to(CheckOut(value: code, screenClosed: _screenWasClosed));
        }
@@ -83,20 +84,20 @@ class _ScanStudentQrCodeState extends State<ScanStudentQrCode> {
   }
 }
 
-class FoundCodeScreen extends StatefulWidget {
+class CheckIn extends StatefulWidget {
   final String value;
   final Function() screenClosed;
-  const FoundCodeScreen({
+  const CheckIn({
     Key? key,
     required this.value,
     required this.screenClosed,
   }) : super(key: key);
 
   @override
-  State<FoundCodeScreen> createState() => _FoundCodeScreenState();
+  State<CheckIn> createState() => _CheckInState();
 }
 
-class _FoundCodeScreenState extends State<FoundCodeScreen> {
+class _CheckInState extends State<CheckIn> {
   final checkInStudentController = Get.put(CheckInStudentController());
   @override
   initState() {
@@ -108,7 +109,7 @@ class _FoundCodeScreenState extends State<FoundCodeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Found Code"),
+        title: const Text("Check In"),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -125,16 +126,24 @@ class _FoundCodeScreenState extends State<FoundCodeScreen> {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                const Text('checking in student'),
-                checkInStudentController.isCheckInStudent.isFalse
-                    ? const LinearProgressIndicator(
-                        color: Colors.red,
-                      )
-                    : const SizedBox(
-                        height: 20,
-                      ),
+                SvgPicture.asset('assets/svgs/loading.svg'),
+                Container(
+                  color: Colors.white,
+                  child: checkInStudentController.isCheckInStudent.isFalse
+                      ? const LinearProgressIndicator(
+                          color: Colors.red,
+                        )
+                      : const SizedBox(
+                          height: 20,
+                        ),
+                ),
+               const Padding(
+                  padding:  EdgeInsets.all(8.0),
+                  child: Text('Checking student in'),
+                )
               ],
             ),
           ),
@@ -169,7 +178,7 @@ class _CheckOutState extends State<CheckOut> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Found Code"),
+        title: const Text("Check Out"),
         centerTitle: true,
         leading: IconButton(
           onPressed: () {
@@ -186,16 +195,24 @@ class _CheckOutState extends State<CheckOut> {
           child: Padding(
             padding: const EdgeInsets.all(20),
             child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                const Text('checking in student'),
-                checkInStudentController.isCheckInStudent.isFalse
-                    ? const LinearProgressIndicator(
-                        color: Colors.red,
-                      )
-                    : const SizedBox(
-                        height: 20,
-                      ),
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [ 
+              SvgPicture.asset('assets/svgs/loading.svg'),
+                Container(
+                  color: Colors.white,
+                  child: checkInStudentController.isCheckInStudent.isFalse
+                      ? const LinearProgressIndicator(
+                          color: Colors.red,
+                        )
+                      : const SizedBox(
+                          height: 20,
+                        ),
+                ),
+               const Padding(
+                  padding:  EdgeInsets.all(8.0),
+                  child: Text('Checking student out'),
+                )
               ],
             ),
           ),

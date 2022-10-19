@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/utils/scan_student_qr_code.dart';
+import 'package:little_steps/screens/scan_student_qr_code.dart';
 import '../widgets/student_actions.dart';
 
 class HomePage extends StatefulWidget {
