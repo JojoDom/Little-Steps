@@ -5,12 +5,12 @@ part 'students_service.chopper.dart';
 
 @ChopperApi(baseUrl: '/students')
 abstract class StudentsService extends ChopperService {
-  @Post(path: '/{student_code}/check-in')
+  @Post(path: '/{studentCode}/check-in')
   Future<Response> checkIn(
     @Header('authorization') String accessToken,
     @Path() String studentCode);
 
-  @Post(path: '/{student_code}/check-out')
+  @Post(path: "/{studentCode}/check-out")
   Future<Response> checkOut(
     @Header('authorization') String accessToken,
     @Path() String studentCode);

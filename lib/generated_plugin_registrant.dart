@@ -7,6 +7,7 @@
 
 import 'package:connectivity_plus_web/connectivity_plus_web.dart';
 import 'package:flutter_secure_storage_web/flutter_secure_storage_web.dart';
+import 'package:mobile_scanner/mobile_scanner_web_plugin.dart';
 
 import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 
@@ -14,5 +15,6 @@ import 'package:flutter_web_plugins/flutter_web_plugins.dart';
 void registerPlugins(Registrar registrar) {
   ConnectivityPlusPlugin.registerWith(registrar);
   FlutterSecureStorageWeb.registerWith(registrar);
+  MobileScannerWebPlugin.registerWith(registrar);
   registrar.registerMessageHandler();
 }

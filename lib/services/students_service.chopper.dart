@@ -18,7 +18,7 @@ class _$StudentsService extends StudentsService {
 
   @override
   Future<Response<dynamic>> checkIn(String accessToken, String studentCode) {
-    final $url = '/students/{student_code}/check-in';
+    final $url = '/students/${studentCode}/check-in';
     final $headers = {
       'authorization': accessToken,
     };
@@ -29,7 +29,7 @@ class _$StudentsService extends StudentsService {
 
   @override
   Future<Response<dynamic>> checkOut(String accessToken, String studentCode) {
-    final $url = '/students/{student_code}/check-out';
+    final $url = '/students/${studentCode}/check-out';
     final $headers = {
       'authorization': accessToken,
     };

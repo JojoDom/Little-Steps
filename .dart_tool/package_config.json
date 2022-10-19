@@ -404,6 +404,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "mobile_scanner",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/mobile_scanner-1.1.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "modal_bottom_sheet",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/modal_bottom_sheet-2.0.1",
       "packageUri": "lib/",
@@ -522,6 +528,12 @@
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/pubspec_parse-1.2.1",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "qr_code_scanner",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
     },
     {
       "name": "shelf",
@@ -650,7 +662,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-10-16T20:04:35.672673Z",
+  "generated": "2022-10-18T14:28:01.080306Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }

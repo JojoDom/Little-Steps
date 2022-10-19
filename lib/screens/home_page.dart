@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/screens/login.dart';
-import 'package:little_steps/widgets/carouselslider.dart';
+import 'package:little_steps/utils/scancode.dart';
 import 'package:little_steps/widgets/student_actions_bottom_sheet_modal.dart';
-
-import '../utils/storage_keys.dart';
 import '../widgets/student_actions.dart';
 
 class HomePage extends StatefulWidget {
@@ -18,7 +16,6 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
 
- 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +34,17 @@ class _HomePageState extends State<HomePage> {
       body: SingleChildScrollView(
         child: Column(
           children: [
-            
+            StudentActions(
+              icon: const Icon(
+                Icons.check_circle,
+                size: 30,
+                color: Colors.red,
+              ),
+              onTap: () {
+                Get.to(const Scanner());
+              },
+              text: 'SCAN',
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
