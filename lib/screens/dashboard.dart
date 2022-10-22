@@ -34,24 +34,6 @@ class _DashBoardState extends State<DashBoard> {
           )
           ),
       body: Obx(() => pages[dashboardController.currentIndex.value]),
-      floatingActionButton: SizedBox(
-        width: 80.0,
-        height: 80.0,
-        child: RawMaterialButton(
-          fillColor: Colors.white,
-          shape: const CircleBorder(
-              side: BorderSide(color: Colors.red, width: 3.0)),
-          elevation: 0.0,
-          child: const Icon(
-            Icons.power_settings_new_outlined,
-            color: Colors.red,
-          ),
-          onPressed: () {
-            Get.offAll(const Login());
-          },
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBarWidget(controller: dashboardController),
     );
   }

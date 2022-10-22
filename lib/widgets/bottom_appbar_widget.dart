@@ -28,8 +28,8 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
             buildAppBarItem(
                 index: 0,
                 title: "Students",
-                icon: Icon(Icons.home,color: Colors.grey,size: 30,),
-                iconActive:  Icon(Icons.home,color: Colors.red, size: 30,)),
+                icon: const Icon(Icons.school_rounded,color: Colors.grey,size: 30,),
+                iconActive:  const Icon(Icons.school_rounded,color: Colors.red, size: 30,)),
                 const SizedBox(
               width: 55,
             ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/login_controller.dart';
+import 'package:little_steps/screens/dashboard.dart';
 import 'package:little_steps/widgets/custom_button.dart';
 
 class Login extends StatefulWidget {
@@ -13,7 +14,7 @@ class Login extends StatefulWidget {
 
 class _LoginState extends State<Login> {
   final loginController = Get.put(LoginController());
-  final _formKey =  GlobalKey<FormState>();
+  final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,25 +97,24 @@ class _LoginState extends State<Login> {
       ),
       bottomNavigationBar: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-        child: 
-        Obx(() => 
-        CustomButton(
+        child: Obx(() => CustomButton(
             buttonText: 'Login',
             textColor: Colors.white,
             onTap: () async {
-              if(_formKey.currentState!.validate()){
-                await loginController.login(
-                  userName: loginController.userNameController.text,
-                  password: loginController.passwordController.text);
-             
-              }            
+              Get.offAll(DashBoard());
+              // if(_formKey.currentState!.validate()){
+              //   await loginController.login(
+              //     userName: loginController.userNameController.text,
+              //     password: loginController.passwordController.text);
+
+              // }
             },
             gradient: const LinearGradient(
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,
                 colors: [Color(0xFFE2202C), Color(0xFFE7979C)]),
             isBusy: loginController.isLoggedIn.value)),
-    ),
+      ),
     );
   }
 }

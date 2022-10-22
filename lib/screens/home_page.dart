@@ -55,24 +55,28 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-      Expanded(
-        child: Card(
-              elevation: 2,
-              color: Colors.white,
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
+         studentController.isLoadingStudents.isTrue? 
+        const LinearProgressIndicator(color: Colors.green,) :
+      Obx(() => 
+         Expanded(
+          child: Card(
+                elevation: 2,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(15),
+                ),
+                child: ListView.separated(
+                  physics: const AlwaysScrollableScrollPhysics(),
+                  shrinkWrap: true,
+                    itemBuilder: (context, index) => StudentsListItem(
+                        student: studentController.students[index]),
+                    separatorBuilder: (context, index) => const Divider(
+                      height: 0.7,
+                      color: Color(0xFF999999),
+                    ),
+                    itemCount: studentController.students.length),
               ),
-              child: ListView.separated(
-                physics: const AlwaysScrollableScrollPhysics(),
-                shrinkWrap: true,
-                  itemBuilder: (context, index) => StudentsListItem(
-                      student: studentController.students[index]),
-                  separatorBuilder: (context, index) => const Divider(
-                    height: 0.7,
-                    color: Color(0xFF999999),
-                  ),
-                  itemCount: studentController.students.length),
-            ),
+        ),
       )
     ]);
   }

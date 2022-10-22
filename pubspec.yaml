@@ -47,6 +47,8 @@ dependencies:
   flutter_secure_storage: ^6.0.0
   qr_code_scanner: ^0.7.0
   mobile_scanner: ^1.1.2
+  
+  # profile picture
   flutter_profile_picture: ^2.0.0
 
 dev_dependencies:

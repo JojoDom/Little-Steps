@@ -19,24 +19,18 @@ class StudentActions extends StatelessWidget {
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Card(
-            color: Colors.white,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-               const SizedBox(height: 25,),
-               //const Icon(Icons.qr_code,size: 50, color: Colors.blueGrey,),
-                Padding(
-                  padding: const EdgeInsets.all(8.0),
-                  child: Text(
-                      text,
-                      style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Colors.black,
-                          fontWeight: FontWeight.w600,
-                          fontSize: 16),
-                    ),
-                ),
-              ],
-            ),
+            color: const Color.fromARGB(255, 226, 203, 203),
+            elevation: 5,
+            child: ListTile(
+              leading: const Icon(Icons.qr_code_2),
+              title: Text(
+                  text,
+                  style: Theme.of(context).textTheme.bodyMedium!.copyWith(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w600,
+                      fontSize: 16),
+                ),)
+           
           ),
         ),
       ),
