@@ -37,4 +37,18 @@ class _$StudentsService extends StudentsService {
     final $request = Request('POST', $url, client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
+
+  @override
+  Future<Response<dynamic>> getStudent(
+      String accessToken, String student_code) {
+    final $url = '/students/';
+    final $params = <String, dynamic>{'student_code': student_code};
+    final $headers = {
+      'authorization': accessToken,
+    };
+
+    final $request = Request('GET', $url, client.baseUrl,
+        parameters: $params, headers: $headers);
+    return client.send<dynamic, dynamic>($request);
+  }
 }

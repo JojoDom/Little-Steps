@@ -3,50 +3,52 @@ import 'package:get/get.dart';
 import 'package:little_steps/models/authenticate_user.dart';
 import 'package:little_steps/screens/dashboard.dart';
 import 'package:little_steps/services/auth_service.dart';
+import 'package:little_steps/services/students_service.dart';
 import 'package:little_steps/utils/storage_keys.dart';
 import 'package:logger/logger.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 
+import '../models/student_list.dart';
 import '../utils/connectivity_service.dart';
 
-class LoginController extends GetxController {
-  late AuthService authService;
-  final userNameController = TextEditingController();
-  final passwordController = TextEditingController();
-  var isLoggedIn = false.obs;
+class StudentsController extends GetxController {
+  late StudentsService studentsService;
+  var students = <Students>[].obs;
+  var isLoadingStudents = false.obs;
   var logger = Logger();
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
   @override
   void onInit() {
-    authService = Get.put(AuthService.create());
+    studentsService = Get.put(StudentsService.create());
     super.onInit();
   }
 
-  login({required String userName, required String password}) async {
+  getStudent(String studentCode) async {
     bool isConnected = await ConnectivityService().checkInternetConnection();
     if (!isConnected) {
       Get.snackbar('No connnectivity', 'Check internet and connect');
     }
-    isLoggedIn(true);
-    Map<String, dynamic> body = {"username": userName, "password": password};
-    await authService.login(body).then((value) {
+    isLoadingStudents(true);
+    var accessToken =
+        await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
+    await studentsService.getStudent(accessToken, studentCode).then((value) {
       if (value.isSuccessful) {
-        isLoggedIn(false);
+        isLoadingStudents(false);
         try {
-          final loginRes = AuthenticateUser.fromJson(value.body);
-          var accessToken = loginRes.accessToken;
-         Get.offAll(const DashBoard());
+          final studentRes = Students.fromJson(value.body);
+          //students = studentRes.
+         
           secureStorage.write(
               key: StorageKeys.ACCESS_TOKEN, value: accessToken);
           secureStorage.write(key: StorageKeys.IS_LOGGED_IN, value: 'True');
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);
-          isLoggedIn(false);
+          isLoadingStudents(false);
         }
       } else {
         Get.snackbar('', 'Login Failed');
-        isLoggedIn(false);
+        isLoadingStudents(false);
       }
     });
   }

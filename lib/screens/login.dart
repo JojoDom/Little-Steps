@@ -2,10 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/login_controller.dart';
-import 'package:little_steps/screens/dashboard.dart';
-import 'package:little_steps/screens/home_page.dart';
 import 'package:little_steps/widgets/custom_button.dart';
-import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 class Login extends StatefulWidget {
   const Login({Key? key}) : super(key: key);
@@ -74,6 +71,7 @@ class _LoginState extends State<Login> {
                 TextFormField(
                   autofocus: false,
                   controller: loginController.passwordController,
+                  obscureText: true,
                   validator: (value) {
                     if (value!.isEmpty) {
                       return 'This field is required';

@@ -28,10 +28,11 @@ class _DashBoardState extends State<DashBoard> {
           elevation: 0,
           backgroundColor: Colors.white,
           centerTitle: true,
-          title: const Text(
-            'Little Steps Montessori',
-            style: TextStyle(color: Colors.black),
-          )),
+          // title: const Text(
+          //   'Little Steps Montessori',
+          //   style: TextStyle(color: Colors.black),
+          // )
+          ),
       body: Obx(() => pages[dashboardController.currentIndex.value]),
       floatingActionButton: SizedBox(
         width: 80.0,
