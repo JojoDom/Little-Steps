@@ -23,64 +23,66 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              StudentActions(
-                icon: const Icon(
-                  Icons.login_rounded,
-                  size: 30,
-                  color: Colors.red,
+    return Obx(() => 
+       Column(children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                StudentActions(
+                  icon: const Icon(
+                    Icons.login_rounded,
+                    size: 30,
+                    color: Colors.red,
+                  ),
+                  onTap: () {
+                    Get.to(const ScanStudentQrCode(
+                      isCheckIn: true,
+                    ));
+                  },
+                  text: 'CHECK IN',
                 ),
-                onTap: () {
-                  Get.to(const ScanStudentQrCode(
-                    isCheckIn: true,
-                  ));
-                },
-                text: 'CHECK IN',
-              ),
-              StudentActions(
-                icon: const Icon(
-                  Icons.logout_rounded,
-                  size: 30,
-                  color: Colors.red,
+                StudentActions(
+                  icon: const Icon(
+                    Icons.logout_rounded,
+                    size: 30,
+                    color: Colors.red,
+                  ),
+                  onTap: () {
+                    Get.to(const ScanStudentQrCode(
+                      isCheckIn: false,
+                    ));
+                  },
+                  text: 'CHECK OUT',
                 ),
-                onTap: () {
-                  Get.to(const ScanStudentQrCode(
-                    isCheckIn: false,
-                  ));
-                },
-                text: 'CHECK OUT',
-              ),
-            ],
+              ],
+            ),
+           studentController.isLoadingStudents.isFalse?        
+        Obx(() => 
+           Expanded(
+            child: 
+            Card(
+                  elevation: 2,
+                  color: Colors.white,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                  child: ListView.separated(
+                    physics: const AlwaysScrollableScrollPhysics(),
+                    shrinkWrap: true,
+                      itemBuilder: (context, index) => StudentsListItem(
+                          student: studentController.students[index]),
+                      separatorBuilder: (context, index) => const Divider(
+                        height: 0.7,
+                        color: Color(0xFF999999),
+                      ),
+                      itemCount: studentController.students.length),
+                ),
           ),
-         studentController.isLoadingStudents.isFalse?        
-      Obx(() => 
-         Expanded(
-          child: 
-          Card(
-                elevation: 2,
-                color: Colors.white,
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(15),
-                ),
-                child: ListView.separated(
-                  physics: const AlwaysScrollableScrollPhysics(),
-                  shrinkWrap: true,
-                    itemBuilder: (context, index) => StudentsListItem(
-                        student: studentController.students[index]),
-                    separatorBuilder: (context, index) => const Divider(
-                      height: 0.7,
-                      color: Color(0xFF999999),
-                    ),
-                    itemCount: studentController.students.length),
-              ),
-        ),
-      ) :  const Center(
-          child: LinearProgressIndicator(color: Colors.green,),
-        )
-    ]
+        ) :  const Center(
+            child: LinearProgressIndicator(color: Colors.green,),
+          )
+      ]
+      ),
     );
   }
 }
