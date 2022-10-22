@@ -34,26 +34,25 @@ class StudentsController extends GetxController {
     if (!isConnected) {
       Get.snackbar('No connnectivity', 'Check internet and connect');
     }
-    
+    isLoadingStudents(true);
     var accessToken =
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
     await studentsService
         .getStudent(accessToken, student_code: studentCode)
         .then((value) {
       if (value.isSuccessful) {
-        isLoadingStudents.value = false;
+         isLoadingStudents(false);
         try {
           final studentRes = Students.fromJson(value.body);
           students.value = studentRes.students;
-          
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);
-          isLoadingStudents.value = false;
+           isLoadingStudents(false);
         }
       } else {
         Get.snackbar('', 'Failed to load students');
-        isLoadingStudents.value = false;
+         isLoadingStudents(false);
       }
     });
   }

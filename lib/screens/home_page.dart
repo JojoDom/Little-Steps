@@ -55,11 +55,11 @@ class _HomePageState extends State<HomePage> {
               ),
             ],
           ),
-         studentController.isLoadingStudents.isTrue? 
-        const LinearProgressIndicator(color: Colors.green,) :
+         studentController.isLoadingStudents.isFalse?        
       Obx(() => 
          Expanded(
-          child: Card(
+          child: 
+          Card(
                 elevation: 2,
                 color: Colors.white,
                 shape: RoundedRectangleBorder(
@@ -77,7 +77,10 @@ class _HomePageState extends State<HomePage> {
                     itemCount: studentController.students.length),
               ),
         ),
-      )
-    ]);
+      ) :  const Center(
+          child: LinearProgressIndicator(color: Colors.green,),
+        )
+    ]
+    );
   }
 }
