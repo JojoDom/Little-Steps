@@ -14,24 +14,23 @@ class StudentActions extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: SizedBox(
-       
+      child: SizedBox(       
         width: MediaQuery.of(context).size.width*0.5,
         child: Padding(
           padding: const EdgeInsets.all(8.0),
           child: Card(
-            color: const Color.fromARGB(255, 226, 203, 203),
+            color: Colors.white,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-               const SizedBox(height: 50,),
-               const Icon(Icons.qr_code,size: 100, color: Colors.blueGrey,),
+               const SizedBox(height: 25,),
+               //const Icon(Icons.qr_code,size: 50, color: Colors.blueGrey,),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
                       text,
                       style: Theme.of(context).textTheme.bodyMedium!.copyWith(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontWeight: FontWeight.w600,
                           fontSize: 16),
                     ),

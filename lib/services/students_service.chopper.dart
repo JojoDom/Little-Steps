@@ -1,5 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
+// ignore_for_file: non_constant_identifier_names
+
 part of 'students_service.dart';
 
 // **************************************************************************
@@ -39,8 +41,8 @@ class _$StudentsService extends StudentsService {
   }
 
   @override
-  Future<Response<dynamic>> getStudent(
-      String accessToken, String student_code) {
+  Future<Response<dynamic>> getStudent(String accessToken,
+      {String? student_code}) {
     final $url = '/students/';
     final $params = <String, dynamic>{'student_code': student_code};
     final $headers = {

@@ -27,7 +27,7 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
           children: [
             buildAppBarItem(
                 index: 0,
-                title: "Home",
+                title: "Students",
                 icon: Icon(Icons.home,color: Colors.grey,size: 30,),
                 iconActive:  Icon(Icons.home,color: Colors.red, size: 30,)),
                 const SizedBox(
@@ -35,7 +35,7 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
             ),
             buildAppBarItem(
                 index: 1,
-                title: "Students",
+                title: "Teachers",
                 icon: Icon(Icons.person,color: Colors.grey,),
                 iconActive: Icon(Icons.person,color: Colors.red,)),
             

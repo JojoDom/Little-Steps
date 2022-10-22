@@ -1,4 +1,3 @@
-
 // ignore_for_file: non_constant_identifier_names
 
 import 'package:chopper/chopper.dart';
@@ -17,10 +16,8 @@ abstract class StudentsService extends ChopperService {
       @Header('authorization') String accessToken, @Path() String studentCode);
 
   @Get(path: "/")
-  Future<Response> getStudent(
-    @Header('authorization') String accessToken,
-    @Query() String student_code
-    );
+  Future<Response> getStudent(@Header('authorization') String accessToken,
+      {@Query() String? student_code});
 
   static StudentsService create() {
     final client = ChopperClient(

@@ -13,17 +13,18 @@ import '../utils/connectivity_service.dart';
 
 class StudentsController extends GetxController {
   late StudentsService studentsService;
-  var students = <Students>[].obs;
+  var students = <Student>[].obs;
   var isLoadingStudents = false.obs;
   var logger = Logger();
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
   @override
-  void onInit() {
+  void onInit() async {
     studentsService = Get.put(StudentsService.create());
+    await getStudent(studentCode: null);
     super.onInit();
   }
 
-  getStudent(String studentCode) async {
+  getStudent({required String? studentCode}) async {
     bool isConnected = await ConnectivityService().checkInternetConnection();
     if (!isConnected) {
       Get.snackbar('No connnectivity', 'Check internet and connect');
@@ -31,23 +32,21 @@ class StudentsController extends GetxController {
     isLoadingStudents(true);
     var accessToken =
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
-    await studentsService.getStudent(accessToken, studentCode).then((value) {
+    await studentsService
+        .getStudent(accessToken, student_code: studentCode)
+        .then((value) {
       if (value.isSuccessful) {
         isLoadingStudents(false);
         try {
           final studentRes = Students.fromJson(value.body);
-          //students = studentRes.
-         
-          secureStorage.write(
-              key: StorageKeys.ACCESS_TOKEN, value: accessToken);
-          secureStorage.write(key: StorageKeys.IS_LOGGED_IN, value: 'True');
+          students.value = studentRes.students;
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);
           isLoadingStudents(false);
         }
       } else {
-        Get.snackbar('', 'Login Failed');
+        Get.snackbar('', 'Failed to load students');
         isLoadingStudents(false);
       }
     });

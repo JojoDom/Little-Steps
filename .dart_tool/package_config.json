@@ -14,6 +14,12 @@
       "languageVersion": "2.15"
     },
     {
+      "name": "archive",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/archive-3.3.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "args",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/args-2.3.1",
       "packageUri": "lib/",
@@ -230,8 +236,26 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_launcher_icons",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_launcher_icons-0.9.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_lints",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_lints-1.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_native_splash",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_splash-2.1.6",
+      "packageUri": "lib/",
+      "languageVersion": "2.15"
+    },
+    {
+      "name": "flutter_profile_picture",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_profile_picture-2.0.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -344,6 +368,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "image",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/image-3.1.3",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
@@ -360,6 +390,12 @@
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/json_annotation-4.6.0",
       "packageUri": "lib/",
       "languageVersion": "2.14"
+    },
+    {
+      "name": "lint",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/lint-1.9.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.16"
     },
     {
       "name": "lints",
@@ -614,6 +650,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "universal_io",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/universal_io-2.0.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "vector_math",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/vector_math-2.1.1",
       "packageUri": "lib/",
@@ -662,7 +704,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-10-18T14:28:01.080306Z",
+  "generated": "2022-10-22T16:42:19.395980Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
