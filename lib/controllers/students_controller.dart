@@ -45,6 +45,7 @@ class StudentsController extends GetxController {
         try {
           final studentRes = Students.fromJson(value.body);
           students.value = studentRes.students;
+          
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);

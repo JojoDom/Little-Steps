@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/screens/dashboard.dart';
-import 'package:little_steps/screens/home_page.dart';
+import 'package:little_steps/screens/students.dart';
 import 'package:little_steps/widgets/custom_button.dart';
 
 studentCheckInSuccess() {

@@ -23,21 +23,29 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
       child: Container(
         color: const Color.fromARGB(255, 226, 203, 203),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
           children: [
             buildAppBarItem(
                 index: 0,
                 title: "Students",
                 icon: const Icon(Icons.school_rounded,color: Colors.grey,size: 30,),
                 iconActive:  const Icon(Icons.school_rounded,color: Colors.red, size: 30,)),
-                const SizedBox(
-              width: 55,
-            ),
-            buildAppBarItem(
+            //      const SizedBox(
+            //     width: 55,
+            // ),
+                 buildAppBarItem(
                 index: 1,
+                title: "Attendance",
+                icon: const Icon(Icons.book_rounded,color: Colors.grey,size: 30,),
+                iconActive:  const Icon(Icons.book_outlined, color: Colors.red, size: 30,)),
+            //     const SizedBox(
+            //   width: 55,
+            // ),
+            buildAppBarItem(
+                index: 2,
                 title: "Teachers",
-                icon: Icon(Icons.person,color: Colors.grey,),
-                iconActive: Icon(Icons.person,color: Colors.red,)),
+                icon: const Icon(Icons.person,color: Colors.grey,),
+                iconActive: const Icon(Icons.person,color: Colors.red,)),
             
           ],
         ),
@@ -78,7 +86,7 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     style: TextStyle(
-                        fontSize: 14,
+                        fontSize: 12,
                         fontWeight: FontWeight.w600,
                         color: widget.controller.currentIndex.value == index
                             ? Colors.white

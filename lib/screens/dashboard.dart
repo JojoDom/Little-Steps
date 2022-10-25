@@ -3,9 +3,10 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/screens/home_page.dart';
-import 'package:little_steps/screens/login.dart';
+import 'package:little_steps/screens/attendance.dart';
 import 'package:little_steps/screens/students.dart';
+import 'package:little_steps/screens/login.dart';
+import 'package:little_steps/screens/teachers.dart';
 import 'package:little_steps/widgets/bottom_appbar_widget.dart';
 
 import '../controllers/dashboard_controller.dart';
@@ -19,7 +20,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   final dashboardController = Get.put(DashboardController());
-  List<Widget> pages = [const HomePage(), const Students()];
+  List<Widget> pages = [const Students(),  const Attendance(), const Teachers()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
