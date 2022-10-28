@@ -75,7 +75,7 @@ class _StudentsState extends State<Students> {
                           isCheckIn: true,
                         ));
                       },
-                      text: 'CHECK IN',
+                      text: 'check in',
                     ),
                     StudentActions(
                       icon: const Icon(
@@ -88,7 +88,7 @@ class _StudentsState extends State<Students> {
                           isCheckIn: false,
                         ));
                       },
-                      text: 'CHECK OUT',
+                      text: 'check out',
                     ),
                   ],
                 ),

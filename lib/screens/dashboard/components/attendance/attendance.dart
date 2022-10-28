@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/attendance_controller.dart';
-import 'package:little_steps/screens/dashboard/components/attendance/local_widgets/student_attendance.dart';
-import 'package:little_steps/screens/dashboard/components/attendance/local_widgets/teachers_attendance.dart';
+import 'package:little_steps/screens/dashboard/components/attendance/local_widgets/checked_in_students.dart';
+import 'package:little_steps/screens/dashboard/components/attendance/local_widgets/checked_out_students.dart';
 
 class Attendance extends StatefulWidget {
   const Attendance({Key? key}) : super(key: key);
@@ -105,8 +105,8 @@ class _AttendanceState extends State<Attendance> with TickerProviderStateMixin {
           body: TabBarView(
             controller: attendanceController.tabController,
             children: const [
-              StudentAttendance(),
-              TeachersAttendance()
+              CheckedInStudents(),
+              CheckedOutStudents()
             ]),
         )
         );

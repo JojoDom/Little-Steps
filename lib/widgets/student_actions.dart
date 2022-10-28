@@ -28,7 +28,7 @@ class StudentActions extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
-                      fontSize: 16),
+                      fontSize: 14),
                 ),)
            
           ),

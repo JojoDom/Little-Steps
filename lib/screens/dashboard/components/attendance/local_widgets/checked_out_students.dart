@@ -5,31 +5,32 @@ import 'package:little_steps/screens/dashboard/components/attendance/local_widge
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:intl/intl.dart';
 
-class StudentAttendance extends StatefulWidget {
-  const StudentAttendance({Key? key}) : super(key: key);
+class CheckedOutStudents extends StatefulWidget {
+  const CheckedOutStudents({Key? key}) : super(key: key);
 
   @override
-  State<StudentAttendance> createState() => _StudentAttendanceState();
+  State<CheckedOutStudents> createState() => _CheckedOutStudentsState();
 }
 
-class _StudentAttendanceState extends State<StudentAttendance> {
+class _CheckedOutStudentsState extends State<CheckedOutStudents> {
   final attendanceController = Get.put(AttendanceController());
-  final RefreshController _refreshController =
+  final RefreshController _refreshList =
       RefreshController(initialRefresh: false);
-  final RefreshController refreshController =
+  final RefreshController refreshList =
       RefreshController(initialRefresh: false);
-  final dateController = TextEditingController();
+  
 
   @override
   void initState() {
-    dateController.text = 'Today';
+
+   // dateController.text = 'Today';
     super.initState();
   }
 
   void _onRefresh() async {
-    await attendanceController.checkedInStudents(date: null);
-    dateController.text = 'Today';
-    _refreshController.refreshCompleted();
+    await attendanceController.checkedOutStudents(date: null);
+    attendanceController.dateController2.text = 'Today';
+    _refreshList.refreshCompleted();
   }
 
   @override
@@ -41,6 +42,7 @@ class _StudentAttendanceState extends State<StudentAttendance> {
               padding: EdgeInsets.only(
                   left: MediaQuery.of(context).size.width * 0.4,
                   top: 20,
+                  bottom: 20,
                   right: 30),
               child: TextFormField(
                 onTap: (() async {
@@ -50,16 +52,17 @@ class _StudentAttendanceState extends State<StudentAttendance> {
                       firstDate: DateTime(1950),
                       lastDate: DateTime(2100));
                   if (pickedDate != null) {
-                    attendanceController.checkedInStudents(
+                    attendanceController.checkedOutStudents(
                         date: DateFormat('y-M-d').format(pickedDate));
-                    dateController.text =
+                   attendanceController.dateController2.text =
                         DateFormat('d MMM, y').format(pickedDate);
                   } else {}
                 }),
-                controller: dateController,
+                controller: attendanceController.dateController2,
                 readOnly: true,
                 decoration: InputDecoration(
-                  hintText: 'Select date ',
+                  hintText: attendanceController.dateController2.text == ''?'Today'
+                  :attendanceController.dateController2.text,
                   suffixIcon: Icon(
                     Icons.calendar_month,
                     color: Theme.of(context).primaryColor,
@@ -78,10 +81,10 @@ class _StudentAttendanceState extends State<StudentAttendance> {
                 ),
               ),
             ),
-              attendanceController.presentStudents.isEmpty
+              attendanceController.studentsGoneHome.isEmpty && attendanceController.isCheckedOutStudents.isFalse
                     ? Expanded(
                         child: SmartRefresher(
-                           controller: _refreshController,
+                           controller: _refreshList,
                       enablePullDown: true,
                       enablePullUp: false,
                       header: const WaterDropHeader(),
@@ -107,10 +110,10 @@ class _StudentAttendanceState extends State<StudentAttendance> {
                           ],
                                               ),
                         )):
-            attendanceController.isCheckedInStudents.isFalse
+            attendanceController.isCheckedOutStudents.isFalse
                 ? Expanded(
                     child: SmartRefresher(
-                      controller: refreshController,
+                      controller: refreshList,
                       enablePullDown: true,
                       enablePullUp: false,
                       header: const WaterDropHeader(),
@@ -120,13 +123,13 @@ class _StudentAttendanceState extends State<StudentAttendance> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) => AttendanceListItem(
                               attendance:
-                                  attendanceController.presentStudents[index]),
+                                  attendanceController.studentsGoneHome[index]),
                           separatorBuilder: (context, index) => const Divider(
                                 height: 0.7,
                                 color: Color(0xFF999999),
                               ),
                           itemCount:
-                              attendanceController.presentStudents.length),
+                              attendanceController.studentsGoneHome.length),
                     ),
                   )
                     : const LinearProgressIndicator(
