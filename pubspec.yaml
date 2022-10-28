@@ -51,6 +51,7 @@ dependencies:
   # profile picture
   flutter_profile_picture: ^2.0.0
   pull_to_refresh: ^2.0.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

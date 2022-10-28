@@ -374,6 +374,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "intl",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/intl-0.17.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "io",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/io-1.0.3",
       "packageUri": "lib/",
@@ -710,7 +716,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-10-28T12:46:53.835224Z",
+  "generated": "2022-10-28T14:48:43.806542Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }
