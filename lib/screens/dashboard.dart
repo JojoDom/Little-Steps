@@ -23,19 +23,22 @@ class _DashBoardState extends State<DashBoard> {
   List<Widget> pages = [const Students(),  const Attendance(), const Teachers()];
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      appBar: AppBar(
-          elevation: 0,
-          backgroundColor: Colors.white,
-          centerTitle: true,
-          title: const Text(
-            'Little Steps Montessori',
-            style: TextStyle(color: Colors.black),
-          )
-          ),
-      body: Obx(() => pages[dashboardController.currentIndex.value]),
-      bottomNavigationBar: BottomAppBarWidget(controller: dashboardController),
+    return GestureDetector(
+       onTap: () => FocusManager.instance.primaryFocus?.unfocus(),
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white,
+            centerTitle: true,
+            title: const Text(
+              'Little Steps Montessori',
+              style: TextStyle(color: Colors.black),
+            )
+            ),
+        body: Obx(() => pages[dashboardController.currentIndex.value]),
+        bottomNavigationBar: BottomAppBarWidget(controller: dashboardController),
+      ),
     );
   }
 }

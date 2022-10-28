@@ -28,24 +28,17 @@ class _AttendanceState extends State<Attendance> {
          
                Obx(() => 
                  Expanded(
-                    child: Card(
-                      elevation: 2,
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(15),
-                  ),
-                      child: ListView.separated(
-                         physics: const AlwaysScrollableScrollPhysics(),
-                        shrinkWrap: true,
-                          itemBuilder: (context, index) => AttendanceListItem(
-                              attendance:
-                                  attendanceController.presentStudents[index]),
-                          separatorBuilder: (context, index) => const Divider(
-                                height: 0.7,
-                                color: Color(0xFF999999),
-                              ),
-                          itemCount: attendanceController.presentStudents.length),
-                    ),
+                    child: ListView.separated(
+                       physics: const AlwaysScrollableScrollPhysics(),
+                      shrinkWrap: true,
+                        itemBuilder: (context, index) => AttendanceListItem(
+                            attendance:
+                                attendanceController.presentStudents[index]),
+                        separatorBuilder: (context, index) => const Divider(
+                              height: 0.7,
+                              color: Color(0xFF999999),
+                            ),
+                        itemCount: attendanceController.presentStudents.length),
                   ),
               )
              

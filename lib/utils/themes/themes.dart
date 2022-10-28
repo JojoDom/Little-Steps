@@ -14,7 +14,7 @@ class Themes {
       primaryColor: const Color(0xFF43C23F),
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
-        primary: Color(0xFFE2202C),
+        primary: Color(0xFFE7979C),
         secondary: Color(0xFFE7979C),
       ),
       textTheme: GoogleFonts.outfitTextTheme());
