@@ -566,6 +566,12 @@
       "languageVersion": "2.14"
     },
     {
+      "name": "pull_to_refresh",
+      "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/pull_to_refresh-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "qr_code_scanner",
       "rootUri": "file:///Users/adwoa.dadson/Dev/sdk/flutter/.pub-cache/hosted/pub.dartlang.org/qr_code_scanner-0.7.0",
       "packageUri": "lib/",
@@ -704,7 +710,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-10-25T09:56:55.042250Z",
+  "generated": "2022-10-28T12:46:53.835224Z",
   "generator": "pub",
   "generatorVersion": "2.16.2"
 }

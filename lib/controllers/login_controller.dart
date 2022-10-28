@@ -1,7 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/models/authenticate_user.dart';
-import 'package:little_steps/screens/dashboard.dart';
+import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/services/auth_service.dart';
 import 'package:little_steps/utils/storage_keys.dart';
 import 'package:logger/logger.dart';

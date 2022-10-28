@@ -16,6 +16,7 @@ class AttendanceController extends GetxController {
   var isCheckedInStudents = false.obs;
   var presentStudents = [].obs;
   var arrived = <StudentData>[].obs;
+  late TabController tabController;
 
   @override
   void onInit() async {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:little_steps/controllers/students_controller.dart';
+import 'package:little_steps/models/student_list.dart';
 import 'package:little_steps/widgets/student_actions_bottomsheet.dart';
-import '../controllers/students_controller.dart';
-import '../models/student_list.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class StudentsListItem extends StatelessWidget {
