@@ -157,10 +157,13 @@ class _HomeState extends State<Home> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) => StudentsListItem(
                               student: studentController.students[index]),
-                          separatorBuilder: (context, index) => const Divider(
-                                height: 0.7,
-                                color: Color(0xFF999999),
-                              ),
+                          separatorBuilder: (context, index) => Container(
+                            margin: const EdgeInsets.symmetric(horizontal: 20),
+                            child: const Divider(
+                                  height: 0.7,
+                                  color: Color(0xFF999999),
+                                ),
+                          ),
                           itemCount: studentController.students.length),
                     ),
                   ),

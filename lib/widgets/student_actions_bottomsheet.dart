@@ -52,19 +52,19 @@ class StudentDetailsBottomSheet {
                       ),
                       StudentsDetailsField(
                           textController: studentsController.firstNameController),
-                      Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Other names',
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodySmall!
-                              .copyWith(
-                                  fontSize: 12, fontWeight: FontWeight.w400),
-                        ),
-                      ),
-                      StudentsDetailsField(
-                          textController: studentsController.otherNamesController),
+                      // Padding(
+                      //   padding: const EdgeInsets.all(8.0),
+                      //   child: Text(
+                      //     'Other names',
+                      //     style: Theme.of(context)
+                      //         .textTheme
+                      //         .bodySmall!
+                      //         .copyWith(
+                      //             fontSize: 12, fontWeight: FontWeight.w400),
+                      //   ),
+                      // ),
+                      // StudentsDetailsField(
+                      //     textController: studentsController.otherNamesController),
                        Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(
