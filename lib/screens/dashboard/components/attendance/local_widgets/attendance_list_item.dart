@@ -25,7 +25,7 @@ class AttendanceListItem extends StatelessWidget {
                 fontSize: 15,
                 fontWeight: FontWeight.w500)),
                 subtitle: Text('${attendance.updatedAt}'),
-        trailing: Text('${attendance.checkinAt}')
+        trailing: Text(attendance.checkinAt)
         );
   }
 }
