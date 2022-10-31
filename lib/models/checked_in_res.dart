@@ -51,7 +51,7 @@ class AttendanceRes {
         "checkin_at":  checkinAt,
         "checkout_at": checkoutAt,
         "date": date,
-        "updated_at": updatedAt.toIso8601String(),
+        "updated_at": updatedAt,
         "student": student.toJson(),
     };
 }
