@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/students_controller.dart';
-import 'package:little_steps/screens/dashboard/components/students/local_widgets/scan_student_qr_code.dart';
-import 'package:little_steps/screens/dashboard/components/students/local_widgets/students_list_item.dart';
+import 'package:little_steps/screens/dashboard/components/home/local_widgets/scan_student_qr_code.dart';
+import 'package:little_steps/screens/dashboard/components/home/local_widgets/students_list_item.dart';
 import 'package:little_steps/widgets/student_actions.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class Students extends StatefulWidget {
-  const Students({Key? key}) : super(key: key);
+class Home extends StatefulWidget {
+  const Home({Key? key}) : super(key: key);
 
   @override
-  State<Students> createState() => _StudentsState();
+  State<Home> createState() => _HomeState();
 }
 
-class _StudentsState extends State<Students> {
+class _HomeState extends State<Home> {
   final studentController = Get.put(StudentsController());
   final TextEditingController searchController = TextEditingController();
   final RefreshController _refreshController =
@@ -45,7 +45,7 @@ class _StudentsState extends State<Students> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Students',
+          'Little Steps',
           style: Theme.of(context)
               .textTheme
               .bodyMedium!

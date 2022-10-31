@@ -2,7 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/screens/dashboard/components/attendance/attendance.dart';
-import 'package:little_steps/screens/dashboard/components/students/students.dart';
+import 'package:little_steps/screens/dashboard/components/home/home.dart';
 import 'package:little_steps/screens/dashboard/components/teachers/teachers.dart';
 import 'package:little_steps/widgets/bottom_appbar_widget.dart';
 
@@ -17,7 +17,7 @@ class DashBoard extends StatefulWidget {
 
 class _DashBoardState extends State<DashBoard> {
   final dashboardController = Get.put(DashboardController());
-  List<Widget> pages = [const Students(),  const Attendance(), const Teachers()];
+  List<Widget> pages = [const Home(),  const Attendance(), const Teachers()];
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
