@@ -124,9 +124,8 @@ class _CheckedOutStudentsState extends State<CheckedOutStudents> {
                           itemBuilder: (context, index) => AttendanceListItems(
                               attendance:
                                   attendanceController.studentsGoneHome[index], isCheckIn: false,),
-                          separatorBuilder: (context, index) => const Divider(
+                          separatorBuilder: (context, index) => const SizedBox(
                                 height: 0.7,
-                                color: Color(0xFF999999),
                               ),
                           itemCount:
                               attendanceController.studentsGoneHome.length),

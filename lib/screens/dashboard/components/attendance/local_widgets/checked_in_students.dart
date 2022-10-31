@@ -130,9 +130,8 @@ class _CheckedInStudentsState extends State<CheckedInStudents> {
                                         attendance: attendanceController
                                             .presentStudents[index], isCheckIn: true,),
                                 separatorBuilder: (context, index) =>
-                                    const Divider(
+                                    const SizedBox(
                                       height: 0.7,
-                                      color: Colors.transparent,
                                     ),
                                 itemCount:
                                     attendanceController.presentStudents.length),
