@@ -27,17 +27,17 @@ class _BottomAppBarWidgetState extends State<BottomAppBarWidget> {
           children: [
             buildAppBarItem(
                 index: 0,
-                title: "Students",
-                icon: const Icon(Icons.school_rounded,color: Colors.grey,size: 30,),
-                iconActive:  const Icon(Icons.school_rounded,color: Colors.red, size: 30,)),
+                title: "Home",
+                icon: const Icon(Icons.home,color: Colors.grey,size: 30,),
+                iconActive:  const Icon(Icons.home,color: Colors.red, size: 30,)),
             //      const SizedBox(
             //     width: 55,
             // ),
                  buildAppBarItem(
                 index: 1,
-                title: "Attendance",
-                icon: const Icon(Icons.book_rounded,color: Colors.grey,size: 30,),
-                iconActive:  const Icon(Icons.book_outlined, color: Colors.red, size: 30,)),
+                title: "Students",
+                icon: const Icon(Icons.school_rounded,color: Colors.grey,size: 30,),
+                iconActive:  const Icon(Icons.school_rounded, color: Colors.red, size: 30,)),
             //     const SizedBox(
             //   width: 55,
             // ),
