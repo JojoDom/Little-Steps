@@ -67,7 +67,8 @@ class AttendanceListItems extends StatelessWidget {
                           fontSize: 16),
                       children: <TextSpan>[
                         TextSpan(
-                          text: DateFormat('hh:mm a')
+                          text:  isCheckIn? DateFormat('hh:mm a')
+                              .format(attendance.createdAt) : DateFormat('hh:mm a')
                               .format(attendance.updatedAt),
                           style: Theme.of(context)
                               .textTheme

@@ -31,6 +31,7 @@ class AttendanceRes {
         required this.date,
         required this.updatedAt,
         required this.student,
+        required this.createdAt,
     });
 
     String checkinAt;
@@ -38,9 +39,11 @@ class AttendanceRes {
     String date;
     DateTime updatedAt;
     StudentData student;
+    DateTime createdAt;
 
     factory AttendanceRes.fromJson(Map<String, dynamic> json) => AttendanceRes(
         checkinAt: json["checkin_at"],
+        createdAt: DateTime.parse(json["created_at"]),
         checkoutAt: json["checkout_at"]??'',
         date: json["date"],
          updatedAt: DateTime.parse(json["updated_at"]),
@@ -52,6 +55,7 @@ class AttendanceRes {
         "checkout_at": checkoutAt,
         "date": date,
         "updated_at": updatedAt,
+        "created_at": createdAt,
         "student": student.toJson(),
     };
 }
