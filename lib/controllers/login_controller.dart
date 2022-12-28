@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/models/authenticate_user.dart';
@@ -45,7 +46,9 @@ class LoginController extends GetxController {
           isLoggedIn(false);
         }
       } else {
-        Get.snackbar('', 'Login Failed');
+        Get.snackbar('', 'Login Failed',
+        colorText: Colors.white,
+        backgroundColor: Colors.red);
         isLoggedIn(false);
       }
     });

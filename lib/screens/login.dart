@@ -100,14 +100,13 @@ class _LoginState extends State<Login> {
         child: Obx(() => CustomButton(
             buttonText: 'Login',
             textColor: Colors.white,
-            onTap: () async {            
-              if(_formKey.currentState!.validate()){
-                await loginController.login(
-                  userName: loginController.userNameController.text,
-                  password: loginController.passwordController.text);
-                   Get.offAll(const DashBoard());
-
-              }
+            onTap: () async {
+              Get.offAll(const DashBoard());
+              // if(_formKey.currentState!.validate()){
+              //   await loginController.login(
+              //     userName: loginController.userNameController.text,
+              //     password: loginController.passwordController.text);                 
+              // }
             },
             gradient: const LinearGradient(
                 begin: Alignment.centerLeft,

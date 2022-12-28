@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/screens/login.dart';
 import 'package:little_steps/utils/themes/themes.dart';
 import 'package:logging/logging.dart';
@@ -28,7 +29,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       theme: Themes().lightTheme,
       darkTheme: Themes().darkTheme,
-      home: const Login(),
+      home: const DashBoard(),
     );
   }
 }

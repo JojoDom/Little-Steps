@@ -75,7 +75,7 @@ class _HomeState extends State<Home> {
                           isCheckIn: true,
                         ));
                       },
-                      text: 'check in',
+                      text: 'Check In',
                     ),
                     StudentActions(
                       icon: const Icon(
@@ -88,7 +88,7 @@ class _HomeState extends State<Home> {
                           isCheckIn: false,
                         ));
                       },
-                      text: 'check out',
+                      text: 'Check Out',
                     ),
                   ],
                 ),
