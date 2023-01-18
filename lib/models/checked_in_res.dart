@@ -78,12 +78,12 @@ class StudentData {
     String studentCode;
 
     factory StudentData.fromJson(Map<String, dynamic> json) => StudentData(
-        firstName: json["first_name"],
-        lastName: json["last_name"],
+        firstName: json["first_name"]??'',
+        lastName: json["last_name"]??'',
         otherNames: json["other_names"],
-        email: json["email"],
+        email: json["email"]??'',
         id: json["id"],
-        studentCode: json["student_code"],
+        studentCode: json["student_code"]??'',
     );
 
     Map<String, dynamic> toJson() => {
