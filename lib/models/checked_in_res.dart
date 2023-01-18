@@ -65,7 +65,7 @@ class StudentData {
         required this.firstName,
         required this.lastName,
         required this.otherNames,
-        required this.email,
+         this.email,
         required this.id,
         required this.studentCode,
     });
@@ -73,7 +73,7 @@ class StudentData {
     String firstName;
     String lastName;
     dynamic otherNames;
-    String email;
+    String? email;
     int id;
     String studentCode;
 
@@ -81,7 +81,7 @@ class StudentData {
         firstName: json["first_name"]??'',
         lastName: json["last_name"]??'',
         otherNames: json["other_names"],
-        email: json["email"]??'',
+        email: json["email"],
         id: json["id"],
         studentCode: json["student_code"]??'',
     );
