@@ -40,6 +40,7 @@ class _$StudentsService extends StudentsService {
 
   @override
   Future<Response<dynamic>> getStudent(String accessToken,
+      // ignore: non_constant_identifier_names
       {String? student_code}) {
     final $url = '/students/';
     final $params = <String, dynamic>{'student_code': student_code};
