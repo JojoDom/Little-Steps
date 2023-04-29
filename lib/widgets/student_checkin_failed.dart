@@ -21,7 +21,7 @@ studentCheckInFailed() {
             height: 25,
           ),
           Text(
-            "Student Check-In failed",
+            " Check-In failed",
             style: Theme.of(Get.context!)
                 .textTheme
                 .titleMedium!

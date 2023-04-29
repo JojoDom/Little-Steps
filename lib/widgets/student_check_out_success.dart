@@ -21,7 +21,7 @@ studentCheckOutSuccess() {
             height: 25,
           ),
           Text(
-            'Student Check Out Successful',
+            ' Check Out Successful',
             style: Theme.of(Get.context!)
                 .textTheme
                 .titleMedium!
