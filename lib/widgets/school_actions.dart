@@ -31,7 +31,7 @@ class SchoolActions extends StatelessWidget {
             Get.to(const ScanTeacherQrCode(isCheckIn: false));
             break;
             case 'checkOutTeacher':
-            Get.to(const ScanStudentQrCode(isCheckIn: false));
+            Get.to(const ScanTeacherQrCode(isCheckIn: false));
             break;
           case 'studentAttendance':
             Get.to(const Attendance());

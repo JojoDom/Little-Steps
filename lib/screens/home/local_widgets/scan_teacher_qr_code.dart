@@ -21,7 +21,7 @@ class _ScanTeacherQrCodeState extends State<ScanTeacherQrCode> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Scan Student Code"),
+        title: const Text("Scan Teacher's Code"),
         actions: [
           IconButton(
             color: Colors.white,

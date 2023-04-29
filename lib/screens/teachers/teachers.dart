@@ -39,7 +39,7 @@ class _TeachersState extends State<Teachers> with TickerProviderStateMixin {
             leading: IconButton(onPressed: (()=>Get.back()), icon: const Icon(Icons.arrow_back_ios),color: Colors.red,),
             centerTitle: true,
             title: Text(
-              ' Student Attendance',
+              ' Teachers Attendance',
               style: Theme.of(context)
                   .textTheme
                   .bodyMedium!
