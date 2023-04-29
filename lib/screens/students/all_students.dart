@@ -37,11 +37,12 @@ class _AllStudentsState extends State<AllStudents> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: const Color(0xFFF2F4F7),
       appBar: AppBar(
-        backgroundColor: Colors.white,
+        backgroundColor: const Color(0xFFF2F4F7),
         elevation: 0,
         centerTitle: true,
+        leading: IconButton(onPressed: (()=> Get.back()), icon: const Icon(Icons.arrow_back_ios),color: Colors.red,),
         title: Text(
           'All Students',
           style: Theme.of(context)
@@ -122,10 +123,7 @@ class _AllStudentsState extends State<AllStudents> {
                               student: studentController.students[index]),
                           separatorBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 20),
-                            child: const Divider(
-                                  height: 0.7,
-                                  color: Color(0xFF999999),
-                                ),
+                            child: const SizedBox(height: 10,)
                           ),
                           itemCount: studentController.students.length),
                     ),

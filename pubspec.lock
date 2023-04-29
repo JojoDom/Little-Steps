@@ -584,6 +584,15 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.1.2"
+  modal_bottom_sheet:
+    dependency: "direct main"
+    description:
+      path: modal_bottom_sheet
+      ref: "38c6f44d0c4205608618a676a907c2d104d00b52"
+      resolved-ref: "38c6f44d0c4205608618a676a907c2d104d00b52"
+      url: "https://github.com/jamesblasco/modal_bottom_sheet.git"
+    source: git
+    version: "2.1.2"
   nm:
     dependency: transitive
     description:
@@ -911,4 +920,4 @@ packages:
     version: "3.1.1"
 sdks:
   dart: ">=2.18.0 <3.0.0"
-  flutter: ">=2.10.0-0"
+  flutter: ">=3.0.0"

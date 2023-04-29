@@ -40,7 +40,12 @@ dependencies:
   #state management
   get: ^4.6.1
   carousel_slider: ^4.1.1
-  # modal_bottom_sheet: ^2.0.1
+  modal_bottom_sheet: #^2.1.2
+    # See https://github.com/jamesblasco/modal_bottom_sheet/pull/315.
+    git:
+      url: https://github.com/jamesblasco/modal_bottom_sheet.git
+      ref: 38c6f44d0c4205608618a676a907c2d104d00b52
+      path: modal_bottom_sheet
   logger: ^1.1.0
   connectivity_plus: ^2.3.9
   flutter_spinkit: ^5.1.0

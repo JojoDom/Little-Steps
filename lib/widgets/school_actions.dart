@@ -4,7 +4,8 @@ import 'package:get/get.dart';
 import 'package:little_steps/screens/attendance/attendance.dart';
 import 'package:little_steps/screens/home/local_widgets/scan_student_qr_code.dart';
 import 'package:little_steps/screens/home/model/school_actions_modal.dart';
-import 'package:little_steps/screens/dashboard/components/teachers/teachers.dart';
+import 'package:little_steps/screens/students/all_students.dart';
+import 'package:little_steps/screens/teachers/teachers.dart';
 
 class SchoolActions extends StatelessWidget {
   const SchoolActions({
@@ -29,6 +30,10 @@ class SchoolActions extends StatelessWidget {
             break;
           case 'teachersAttendance':
             Get.to(const Teachers());
+            break;
+          case 'allStudents':
+            Get.to(const AllStudents());
+            break;
         }
       },
       child: Card(
@@ -41,10 +46,11 @@ class SchoolActions extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: SizedBox(
-                height: 30,                
-                child: Text(schoolActions.action,
-                                style: const TextStyle(color: Colors.black),
-                              ),
+                height: 30,
+                child: Text(
+                  schoolActions.action,
+                  style: const TextStyle(color: Colors.black),
+                ),
               ),
             )
           ]),
