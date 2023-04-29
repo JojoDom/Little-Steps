@@ -446,12 +446,6 @@
       "languageVersion": "2.12"
     },
     {
-      "name": "modal_bottom_sheet",
-      "rootUri": "file:///Users/adwoa.dadson/.pub-cache/hosted/pub.dev/modal_bottom_sheet-2.0.1",
-      "packageUri": "lib/",
-      "languageVersion": "2.12"
-    },
-    {
       "name": "nm",
       "rootUri": "file:///Users/adwoa.dadson/.pub-cache/hosted/pub.dev/nm-0.5.0",
       "packageUri": "lib/",
@@ -704,7 +698,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2023-04-29T19:45:43.873714Z",
+  "generated": "2023-04-29T20:01:43.800734Z",
   "generator": "pub",
   "generatorVersion": "2.19.3"
 }

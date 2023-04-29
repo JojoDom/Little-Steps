@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/widgets/custom_button.dart';
+
+import '../screens/home/home.dart';
 
 studentCheckOutSuccess() {
   Get.defaultDialog(
@@ -34,7 +35,7 @@ studentCheckOutSuccess() {
                 buttonColor: Colors.green,
                 textColor: Colors.white,
                 onTap: () {
-                  Get.offAll( const DashBoard());
+                  Get.offAll( const Home());
                 },
                 isBusy: false),
           )

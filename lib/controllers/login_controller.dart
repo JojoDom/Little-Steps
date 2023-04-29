@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/models/authenticate_user.dart';
-import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/services/auth_service.dart';
 import 'package:little_steps/utils/storage_keys.dart';
 import 'package:logger/logger.dart';
@@ -35,7 +34,6 @@ class LoginController extends GetxController {
         try {
           final loginRes = AuthenticateUser.fromJson(value.body);
           var accessToken = loginRes.accessToken;
-         Get.offAll(const DashBoard());
           secureStorage.write(
               key: StorageKeys.ACCESS_TOKEN, value: accessToken);
           secureStorage.write(key: StorageKeys.IS_LOGGED_IN, value: 'True');

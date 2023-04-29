@@ -1,19 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/students_controller.dart';
-import 'package:little_steps/screens/dashboard/components/home/local_widgets/scan_student_qr_code.dart';
-import 'package:little_steps/screens/dashboard/components/home/local_widgets/students_list_item.dart';
-import 'package:little_steps/widgets/student_actions.dart';
+import 'package:little_steps/screens/home/local_widgets/students_list_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
-class Home extends StatefulWidget {
-  const Home({Key? key}) : super(key: key);
+class AllStudents extends StatefulWidget {
+  const AllStudents({Key? key}) : super(key: key);
 
   @override
-  State<Home> createState() => _HomeState();
+  State<AllStudents> createState() => _AllStudentsState();
 }
 
-class _HomeState extends State<Home> {
+class _AllStudentsState extends State<AllStudents> {
   final studentController = Get.put(StudentsController());
   final TextEditingController searchController = TextEditingController();
   final RefreshController _refreshController =
@@ -45,7 +43,7 @@ class _HomeState extends State<Home> {
         elevation: 0,
         centerTitle: true,
         title: Text(
-          'Little Steps',
+          'All Students',
           style: Theme.of(context)
               .textTheme
               .bodyMedium!
@@ -58,41 +56,6 @@ class _HomeState extends State<Home> {
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width,
-                height: 100,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: [
-                    StudentActions(
-                      icon: const Icon(
-                        Icons.login_rounded,
-                        size: 30,
-                        color: Colors.red,
-                      ),
-                      onTap: () {
-                        Get.to(const ScanStudentQrCode(
-                          isCheckIn: true,
-                        ));
-                      },
-                      text: 'Check In',
-                    ),
-                    StudentActions(
-                      icon: const Icon(
-                        Icons.logout_rounded,
-                        size: 30,
-                        color: Colors.red,
-                      ),
-                      onTap: () {
-                        Get.to(const ScanStudentQrCode(
-                          isCheckIn: false,
-                        ));
-                      },
-                      text: 'Check Out',
-                    ),
-                  ],
-                ),
-              ),
               Padding(
                 padding:
                     const EdgeInsets.symmetric(horizontal: 30, vertical: 20),

@@ -20,7 +20,7 @@ class StudentsListItem extends StatelessWidget {
           studentsController.firstNameController.text = student.firstName;
           studentsController.idController.text = student.id.toString();
           studentsController.studentCodeController.text = student.studentCode;
-          StudentDetailsBottomSheet().studentDetails(student: student);
+          //StudentDetailsBottomSheet().studentDetails(student: student);
         },
         leading: ProfilePicture(
           name: '${student.firstName} ${student.lastName}',
