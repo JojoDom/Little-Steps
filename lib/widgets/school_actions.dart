@@ -7,6 +7,8 @@ import 'package:little_steps/screens/home/model/school_actions_modal.dart';
 import 'package:little_steps/screens/students/all_students.dart';
 import 'package:little_steps/screens/teachers/teachers.dart';
 
+import '../screens/home/local_widgets/scan_teacher_qr_code.dart';
+
 class SchoolActions extends StatelessWidget {
   const SchoolActions({
     Key? key,
@@ -23,6 +25,12 @@ class SchoolActions extends StatelessWidget {
             Get.to(const ScanStudentQrCode(isCheckIn: true));
             break;
           case 'checkOutStudent':
+            Get.to(const ScanTeacherQrCode(isCheckIn: false));
+            break;
+            case 'checkInTeacher':
+            Get.to(const ScanTeacherQrCode(isCheckIn: false));
+            break;
+            case 'checkOutTeacher':
             Get.to(const ScanStudentQrCode(isCheckIn: false));
             break;
           case 'studentAttendance':
