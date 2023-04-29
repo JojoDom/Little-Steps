@@ -45,11 +45,12 @@ dependencies:
   connectivity_plus: ^2.3.9
   flutter_spinkit: ^5.1.0
   flutter_secure_storage: ^6.0.0
-  qr_code_scanner: ^0.7.0
   mobile_scanner: ^1.1.2
   
   # profile picture
   flutter_profile_picture: ^2.0.0
+  pull_to_refresh: ^2.0.0
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:

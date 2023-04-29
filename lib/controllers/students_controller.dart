@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/models/authenticate_user.dart';
-import 'package:little_steps/screens/dashboard.dart';
+import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/services/auth_service.dart';
 import 'package:little_steps/services/students_service.dart';
 import 'package:little_steps/utils/storage_keys.dart';
@@ -45,13 +46,17 @@ class StudentsController extends GetxController {
         try {
           final studentRes = Students.fromJson(value.body);
           students.value = studentRes.students;
+          
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);
            isLoadingStudents(false);
         }
       } else {
-        Get.snackbar('', 'Failed to load students');
+        Get.snackbar('', 'Failed to load student(s)',
+        backgroundColor: Colors.red,
+        colorText: Colors.white
+        );
          isLoadingStudents(false);
       }
     });

@@ -20,7 +20,7 @@ class StudentActions extends StatelessWidget {
           padding: const EdgeInsets.all(8.0),
           child: Card(
             color: const Color.fromARGB(255, 226, 203, 203),
-            elevation: 5,
+            elevation: 0,
             child: ListTile(
               leading: const Icon(Icons.qr_code_2),
               title: Text(
@@ -28,7 +28,7 @@ class StudentActions extends StatelessWidget {
                   style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
-                      fontSize: 16),
+                      fontSize: 14),
                 ),)
            
           ),

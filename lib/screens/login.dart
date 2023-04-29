@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/login_controller.dart';
-import 'package:little_steps/screens/dashboard.dart';
+import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/widgets/custom_button.dart';
 
 class Login extends StatefulWidget {
@@ -101,12 +101,11 @@ class _LoginState extends State<Login> {
             buttonText: 'Login',
             textColor: Colors.white,
             onTap: () async {
-              Get.offAll(DashBoard());
+              Get.offAll(const DashBoard());
               // if(_formKey.currentState!.validate()){
               //   await loginController.login(
               //     userName: loginController.userNameController.text,
-              //     password: loginController.passwordController.text);
-
+              //     password: loginController.passwordController.text);                 
               // }
             },
             gradient: const LinearGradient(

@@ -13,10 +13,10 @@ class CheckedInStudents {
         required this.attendance,
     });
 
-    List<Attendance> attendance;
+    List<AttendanceRes> attendance;
 
     factory CheckedInStudents.fromJson(Map<String, dynamic> json) => CheckedInStudents(
-        attendance: List<Attendance>.from(json["attendance"].map((x) => Attendance.fromJson(x))),
+        attendance: List<AttendanceRes>.from(json["attendance"].map((x) => AttendanceRes.fromJson(x))),
     );
 
     Map<String, dynamic> toJson() => {
@@ -24,44 +24,48 @@ class CheckedInStudents {
     };
 }
 
-class Attendance {
-    Attendance({
+class AttendanceRes {
+    AttendanceRes({
         required this.checkinAt,
         required this.checkoutAt,
         required this.date,
         required this.updatedAt,
         required this.student,
+        required this.createdAt,
     });
 
-    DateTime checkinAt;
-    DateTime checkoutAt;
-    DateTime date;
+    String checkinAt;
+    String checkoutAt;
+    String date;
     DateTime updatedAt;
-    Student student;
+    StudentData student;
+    DateTime createdAt;
 
-    factory Attendance.fromJson(Map<String, dynamic> json) => Attendance(
-        checkinAt: DateTime.parse(json["checkin_at"]),
-        checkoutAt: DateTime.parse(json["checkout_at"]),
-        date: DateTime.parse(json["date"]),
-        updatedAt: DateTime.parse(json["updated_at"]),
-        student: Student.fromJson(json["student"]),
+    factory AttendanceRes.fromJson(Map<String, dynamic> json) => AttendanceRes(
+        checkinAt: json["checkin_at"],
+        createdAt: DateTime.parse(json["created_at"]),
+        checkoutAt: json["checkout_at"]??'',
+        date: json["date"],
+         updatedAt: DateTime.parse(json["updated_at"]),
+        student: StudentData.fromJson(json["student"]),
     );
 
     Map<String, dynamic> toJson() => {
-        "checkin_at": "${checkinAt.year.toString().padLeft(4, '0')}-${checkinAt.month.toString().padLeft(2, '0')}-${checkinAt.day.toString().padLeft(2, '0')}",
-        "checkout_at": "${checkoutAt.year.toString().padLeft(4, '0')}-${checkoutAt.month.toString().padLeft(2, '0')}-${checkoutAt.day.toString().padLeft(2, '0')}",
-        "date": "${date.year.toString().padLeft(4, '0')}-${date.month.toString().padLeft(2, '0')}-${date.day.toString().padLeft(2, '0')}",
-        "updated_at": updatedAt.toIso8601String(),
+        "checkin_at":  checkinAt,
+        "checkout_at": checkoutAt,
+        "date": date,
+        "updated_at": updatedAt,
+        "created_at": createdAt,
         "student": student.toJson(),
     };
 }
 
-class Student {
-    Student({
+class StudentData {
+    StudentData({
         required this.firstName,
         required this.lastName,
         required this.otherNames,
-        required this.email,
+         this.email,
         required this.id,
         required this.studentCode,
     });
@@ -69,17 +73,17 @@ class Student {
     String firstName;
     String lastName;
     dynamic otherNames;
-    String email;
+    String? email;
     int id;
     String studentCode;
 
-    factory Student.fromJson(Map<String, dynamic> json) => Student(
-        firstName: json["first_name"],
-        lastName: json["last_name"],
+    factory StudentData.fromJson(Map<String, dynamic> json) => StudentData(
+        firstName: json["first_name"]??'',
+        lastName: json["last_name"]??'',
         otherNames: json["other_names"],
         email: json["email"],
         id: json["id"],
-        studentCode: json["student_code"],
+        studentCode: json["student_code"]??'',
     );
 
     Map<String, dynamic> toJson() => {

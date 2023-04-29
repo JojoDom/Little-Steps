@@ -11,10 +11,10 @@ class Themes {
     fontFamily: "SFProDisplay",
     scaffoldBackgroundColor: Colors.grey.shade200,
   ).copyWith(
-      primaryColor: const Color(0xFF43C23F),
+      primaryColor: const Color(0xFFE7979C),
       brightness: Brightness.light,
       colorScheme: const ColorScheme.light(
-        primary: Color(0xFFE2202C),
+        primary: Color(0xFFE7979C),
         secondary: Color(0xFFE7979C),
       ),
       textTheme: GoogleFonts.outfitTextTheme());
