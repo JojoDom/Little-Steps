@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:little_steps/controllers/attendance_controller.dart';
 import 'package:little_steps/screens/attendance/local_widgets/checked_in_students.dart';
 import 'package:little_steps/screens/attendance/local_widgets/checked_out_students.dart';
+import 'package:little_steps/screens/teachers/local_widgets/checked_in_teachers.dart';
+import 'package:little_steps/screens/teachers/local_widgets/checked_out_teachers.dart';
 
 class Teachers extends StatefulWidget {
   const Teachers({Key? key}) : super(key: key);
@@ -106,8 +108,8 @@ class _TeachersState extends State<Teachers> with TickerProviderStateMixin {
           body: TabBarView(
             controller: attendanceController.tabController,
             children: const [
-              CheckedInStudents(),
-              CheckedOutStudents()
+              CheckedInTeachers(),
+              CheckedOutTeachers()
             ]),
         )
         );

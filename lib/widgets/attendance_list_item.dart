@@ -17,7 +17,7 @@ class AttendanceListItems extends StatelessWidget {
         children: [
           ProfilePicture(
             name:
-                '${attendance.student.firstName} ${attendance.student.lastName}',
+                '${attendance.studentAndTeacher.firstName} ${attendance.studentAndTeacher.lastName}',
             fontsize: 12,
             radius: 30,
             count: 2,
@@ -47,7 +47,7 @@ class AttendanceListItems extends StatelessWidget {
                       children: <TextSpan>[
                         TextSpan(
                           text:
-                              '${attendance.student.firstName} ${attendance.student.lastName}',
+                              '${attendance.studentAndTeacher.firstName} ${attendance.studentAndTeacher.lastName}',
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!

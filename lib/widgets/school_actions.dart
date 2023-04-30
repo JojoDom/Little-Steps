@@ -27,10 +27,10 @@ class SchoolActions extends StatelessWidget {
           case 'checkOutStudent':
             Get.to(const ScanTeacherQrCode(isCheckIn: false));
             break;
-            case 'checkInTeacher':
+          case 'checkInTeacher':
             Get.to(const ScanTeacherQrCode(isCheckIn: false));
             break;
-            case 'checkOutTeacher':
+          case 'checkOutTeacher':
             Get.to(const ScanTeacherQrCode(isCheckIn: false));
             break;
           case 'studentAttendance':
@@ -42,6 +42,8 @@ class SchoolActions extends StatelessWidget {
           case 'allStudents':
             Get.to(const AllStudents());
             break;
+          case 'allTeachers':
+            Get.to(const AllStudents());
         }
       },
       child: Card(
