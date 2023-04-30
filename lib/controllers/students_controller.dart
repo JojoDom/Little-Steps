@@ -10,7 +10,7 @@ import '../utils/connectivity_service.dart';
 
 class StudentsController extends GetxController {
   late StudentsService studentsService;
-  var students = <Student>[].obs;
+  var students = <StudentTeacher>[].obs;
   var isLoadingStudents = false.obs;
   var logger = Logger();
   final surnameController = TextEditingController();
@@ -40,7 +40,7 @@ class StudentsController extends GetxController {
       if (value.isSuccessful) {
          isLoadingStudents(false);
         try {
-          final studentRes = Students.fromJson(value.body);
+          final studentRes = StudentsAndTeachers.fromJson(value.body);
           students.value = studentRes.students;
           
         } catch (error, stackTrace) {

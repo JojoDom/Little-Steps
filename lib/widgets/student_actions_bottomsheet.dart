@@ -7,7 +7,7 @@ import '../models/student_list.dart';
 
 class StudentDetailsBottomSheet {
   final studentsController = Get.put(StudentsController());
-  studentDetails({required Student student}) {
+  studentDetails({required StudentTeacher student}) {
     showCupertinoModalBottomSheet(
         context: Get.context!,
         enableDrag: false,

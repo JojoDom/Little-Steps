@@ -7,7 +7,7 @@ import 'package:little_steps/widgets/student_actions_bottomsheet.dart';
 
 class StudentsListItem extends StatelessWidget {
   const StudentsListItem({Key? key, required this.student}) : super(key: key);
-  final Student student;
+  final StudentTeacher student;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class StudentsListItem extends StatelessWidget {
           studentsController.surnameController.text = student.lastName;
           studentsController.firstNameController.text = student.firstName;
           studentsController.idController.text = student.id.toString();
-          studentsController.studentCodeController.text = student.studentCode;
+          studentsController.studentCodeController.text = student.studentCode??'';
           StudentDetailsBottomSheet().studentDetails(student: student);
         },
         leading: ProfilePicture(

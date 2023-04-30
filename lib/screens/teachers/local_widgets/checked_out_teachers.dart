@@ -123,12 +123,12 @@ class _CheckedOutTeachersState extends State<CheckedOutTeachers> {
                           shrinkWrap: true,
                           itemBuilder: (context, index) => AttendanceListItems(
                               attendance:
-                                  attendanceController.studentsGoneHome[index], isCheckIn: false,),
+                                  attendanceController.teacherGoneHome[index], isCheckIn: false,),
                           separatorBuilder: (context, index) => const SizedBox(
                                 height: 0.7,
                               ),
                           itemCount:
-                              attendanceController.studentsGoneHome.length),
+                              attendanceController.teacherGoneHome.length),
                     ),
                   )
                     : const LinearProgressIndicator(

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
+import 'package:little_steps/models/student_list.dart';
 import 'package:little_steps/services/students_service.dart';
 import 'package:little_steps/services/teachers_service.dart';
 import 'package:little_steps/utils/storage_keys.dart';
@@ -9,6 +10,7 @@ import 'package:little_steps/widgets/student_checkin_failed.dart';
 import 'package:little_steps/widgets/student_checkout_failed.dart';
 import 'package:logger/logger.dart';
 
+import '../utils/connectivity_service.dart';
 import '../widgets/student_check_out_success.dart';
 
 class TeachersController extends GetxController {
@@ -16,6 +18,8 @@ class TeachersController extends GetxController {
   late TeachersService teachersService;
   final FlutterSecureStorage secureStorage = const FlutterSecureStorage();
   var isCheckInStudent = false.obs;
+  var isLoadingTeachers = false.obs;
+  var teachers = [].obs;
   @override
   void onInit() {
     teachersService = Get.put(TeachersService.create());
@@ -33,9 +37,8 @@ class TeachersController extends GetxController {
       } else {
         studentCheckInFailed();
         Get.snackbar('Error', 'Failed to check in student',
-        backgroundColor: Colors.red,
-        duration: const Duration(milliseconds:1000 )
-        );
+            backgroundColor: Colors.red,
+            duration: const Duration(milliseconds: 1000));
         isCheckInStudent(false);
       }
     });
@@ -52,10 +55,38 @@ class TeachersController extends GetxController {
       } else {
         studentCheckOutFailed();
         Get.snackbar('Error', 'Failed to check in student',
-         backgroundColor: Colors.red,
-        duration: const Duration(milliseconds:1000 )
-        );
+            backgroundColor: Colors.red,
+            duration: const Duration(milliseconds: 1000));
         isCheckInStudent(true);
+      }
+    });
+  }
+
+  getTeachers({required String? teacherCode}) async {
+    bool isConnected = await ConnectivityService().checkInternetConnection();
+    if (!isConnected) {
+      Get.snackbar('No connnectivity', 'Check internet and connect');
+    }
+    isLoadingTeachers(true);
+    var accessToken =
+        await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
+    await teachersService
+        .getTeachers(accessToken, student_code: teacherCode)
+        .then((value) {
+      if (value.isSuccessful) {
+        isLoadingTeachers(false);
+        try {
+          final teachersRes = StudentsAndTeachers.fromJson(value.body);
+          teachers.value = teachersRes.students;
+        } catch (error, stackTrace) {
+          logger.e(error);
+          logger.e(stackTrace);
+          isLoadingTeachers(false);
+        }
+      } else {
+        Get.snackbar('', 'Failed to load student(s)',
+            backgroundColor: Colors.red, colorText: Colors.white);
+        isLoadingTeachers(false);
       }
     });
   }

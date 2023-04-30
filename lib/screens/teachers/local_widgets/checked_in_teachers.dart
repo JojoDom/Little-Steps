@@ -128,13 +128,13 @@ class _CheckedInTeachersState extends State<CheckedInTeachers> {
                                 itemBuilder: (context, index) =>
                                     AttendanceListItems(
                                         attendance: attendanceController
-                                            .presentStudents[index], isCheckIn: true,),
+                                            .presentTeachers[index], isCheckIn: true,),
                                 separatorBuilder: (context, index) =>
                                     const SizedBox(
                                       height: 0.7,
                                     ),
                                 itemCount:
-                                    attendanceController.presentStudents.length),
+                                    attendanceController.presentTeachers.length),
                           ),
                         ),
                     )
