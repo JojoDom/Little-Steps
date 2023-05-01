@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/attendance_controller.dart';
-import 'package:little_steps/widgets/attendance_list_item.dart';
+import 'package:little_steps/widgets/student_attendance_list_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:intl/intl.dart';
+
+import '../../../widgets/teachers_attendance_list_item.dart';
 
 class CheckedInTeachers extends StatefulWidget {
   const CheckedInTeachers({Key? key}) : super(key: key);
@@ -103,7 +105,7 @@ class _CheckedInTeachersState extends State<CheckedInTeachers> {
                             child: Image.asset('assets/images/no_result.png')),
                         Center(
                           child: Text(
-                            'No student found',
+                            'No teacher found',
                             style: Theme.of(context)
                                 .textTheme
                                 .bodySmall!
@@ -126,7 +128,7 @@ class _CheckedInTeachersState extends State<CheckedInTeachers> {
                                 physics: const AlwaysScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) =>
-                                    AttendanceListItems(
+                                    TeachersAttendanceListItems(
                                         attendance: attendanceController
                                             .presentTeachers[index], isCheckIn: true,),
                                 separatorBuilder: (context, index) =>

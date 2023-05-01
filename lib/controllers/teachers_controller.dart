@@ -10,6 +10,7 @@ import 'package:little_steps/widgets/student_checkin_failed.dart';
 import 'package:little_steps/widgets/student_checkout_failed.dart';
 import 'package:logger/logger.dart';
 
+import '../models/teachers_list.dart';
 import '../utils/connectivity_service.dart';
 import '../widgets/student_check_out_success.dart';
 
@@ -23,6 +24,7 @@ class TeachersController extends GetxController {
   @override
   void onInit() {
     teachersService = Get.put(TeachersService.create());
+    getTeachers(teacherCode: null);
     super.onInit();
   }
 
@@ -36,10 +38,11 @@ class TeachersController extends GetxController {
         studentCheckInSuccess();
       } else {
         studentCheckInFailed();
-        Get.snackbar('Error', 'Failed to check in student',
+        isCheckInStudent(false);
+        Get.snackbar('Error', 'Failed to check in teacher',
             backgroundColor: Colors.red,
             duration: const Duration(milliseconds: 1000));
-        isCheckInStudent(false);
+        
       }
     });
   }
@@ -54,10 +57,11 @@ class TeachersController extends GetxController {
         studentCheckOutSuccess();
       } else {
         studentCheckOutFailed();
+        isCheckInStudent(true);
         Get.snackbar('Error', 'Failed to check in student',
             backgroundColor: Colors.red,
             duration: const Duration(milliseconds: 1000));
-        isCheckInStudent(true);
+        
       }
     });
   }
@@ -76,8 +80,8 @@ class TeachersController extends GetxController {
       if (value.isSuccessful) {
         isLoadingTeachers(false);
         try {
-          final teachersRes = StudentsAndTeachers.fromJson(value.body);
-          teachers.value = teachersRes.students;
+          final teachersRes = Teachers.fromJson(value.body);
+          teachers.value = teachersRes.teachers;
         } catch (error, stackTrace) {
           logger.e(error);
           logger.e(stackTrace);

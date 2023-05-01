@@ -120,8 +120,8 @@ class _AllTeachersState extends State<AllTeachers> {
                       child: ListView.separated(
                           physics: const AlwaysScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemBuilder: (context, index) => StudentsListItem(
-                              student: teacherController.teachers[index]),
+                          itemBuilder: (context, index) => TeachersListItem(
+                              teacher: teacherController.teachers[index]),
                           separatorBuilder: (context, index) => Container(
                             margin: const EdgeInsets.symmetric(horizontal: 20),
                             child: const SizedBox(height: 10,)

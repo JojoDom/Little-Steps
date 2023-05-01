@@ -3,8 +3,8 @@ import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:intl/intl.dart';
 import 'package:little_steps/models/checked_in_res.dart';
 
-class AttendanceListItems extends StatelessWidget {
-  const AttendanceListItems({Key? key, required this.attendance, required this.isCheckIn})
+class StudentAttendanceListItems extends StatelessWidget {
+  const StudentAttendanceListItems({Key? key, required this.attendance, required this.isCheckIn})
       : super(key: key);
   final AttendanceRes attendance;
   final bool isCheckIn;
@@ -17,7 +17,7 @@ class AttendanceListItems extends StatelessWidget {
         children: [
           ProfilePicture(
             name:
-                '${attendance.studentAndTeacher.firstName} ${attendance.studentAndTeacher.lastName}',
+                '${attendance.student.firstName} ${attendance.student.lastName}',
             fontsize: 12,
             radius: 30,
             count: 2,
@@ -47,7 +47,7 @@ class AttendanceListItems extends StatelessWidget {
                       children: <TextSpan>[
                         TextSpan(
                           text:
-                              '${attendance.studentAndTeacher.firstName} ${attendance.studentAndTeacher.lastName}',
+                              '${attendance.student.firstName} ${attendance.student.lastName}',
                           style: Theme.of(context)
                               .textTheme
                               .bodyMedium!

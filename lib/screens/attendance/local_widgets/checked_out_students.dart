@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/attendance_controller.dart';
-import 'package:little_steps/widgets/attendance_list_item.dart';
+import 'package:little_steps/widgets/student_attendance_list_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:intl/intl.dart';
 
@@ -121,7 +121,7 @@ class _CheckedOutStudentsState extends State<CheckedOutStudents> {
                       child: ListView.separated(
                           physics: const AlwaysScrollableScrollPhysics(),
                           shrinkWrap: true,
-                          itemBuilder: (context, index) => AttendanceListItems(
+                          itemBuilder: (context, index) => StudentAttendanceListItems(
                               attendance:
                                   attendanceController.studentsGoneHome[index], isCheckIn: false,),
                           separatorBuilder: (context, index) => const SizedBox(

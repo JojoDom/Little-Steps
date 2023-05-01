@@ -4,37 +4,37 @@
 
 import 'dart:convert';
 
-Students studentsFromJson(String str) =>
-    Students.fromJson(json.decode(str));
+Teachers teachersFromJson(String str) =>
+    Teachers.fromJson(json.decode(str));
 
-String studentsToJson(Students data) => json.encode(data.toJson());
+String studentsToJson(Teachers data) => json.encode(data.toJson());
 
-class Students {
-  Students({
-    required this.students,
+class Teachers {
+  Teachers({
+    required this.teachers,
   });
 
-  List<Student> students;
+  List<Teacher> teachers;
 
-  factory Students.fromJson(Map<String, dynamic> json) =>
-      Students(
-        students: List<Student>.from(
-            json["students"].map((x) => Student.fromJson(x))),
+  factory Teachers.fromJson(Map<String, dynamic> json) =>
+      Teachers(
+        teachers: List<Teacher>.from(
+            json["teachers"].map((x) => Teacher.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
-        "students": List<dynamic>.from(students.map((x) => x.toJson())),
+        "teachers": List<dynamic>.from(teachers.map((x) => x.toJson())),
       };
 }
 
-class Student {
-  Student(
+class Teacher {
+  Teacher(
       {required this.firstName,
       required this.lastName,
       required this.otherNames,
       required this.email,
       required this.id,
-      this.studentCode,
+      this.teacherCode,
       });
 
   String firstName;
@@ -42,16 +42,15 @@ class Student {
   dynamic otherNames;
   String email;
   int id;
-  String? studentCode;
   String? teacherCode;
 
-  factory Student.fromJson(Map<String, dynamic> json) => Student(
+  factory Teacher.fromJson(Map<String, dynamic> json) => Teacher(
         firstName: json["first_name"] ?? '',
         lastName: json["last_name"] ?? '',
         otherNames: json["other_names"],
         email: json["email"] ?? '',
         id: json["id"] ?? 0,
-        studentCode: json["student_code"] ?? '',
+        teacherCode: json["teacher_code"] ?? '',
         
       );
 
@@ -61,7 +60,7 @@ class Student {
         "other_names": otherNames,
         "email": email,
         "id": id,
-        "student_code": studentCode,
+        "teacher_code": teacherCode,
        
       };
 }

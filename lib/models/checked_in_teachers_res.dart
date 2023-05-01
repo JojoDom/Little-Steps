@@ -4,23 +4,23 @@
 
 import 'dart:convert';
 
-CheckedIn checkedInStudentsFromJson(String str) =>
-    CheckedIn.fromJson(json.decode(str));
+CheckInTeacher checkInTeacherFromJson(String str) =>
+    CheckInTeacher.fromJson(json.decode(str));
 
-String checkedInStudentsToJson(CheckedIn data) =>
+String checkInTeacherToJson(CheckInTeacher data) =>
     json.encode(data.toJson());
 
-class CheckedIn {
-  CheckedIn({
+class CheckInTeacher {
+  CheckInTeacher({
     required this.attendance,
   });
 
-  List<AttendanceRes> attendance;
+  List<TeacherAttendanceRes> attendance;
 
-  factory CheckedIn.fromJson(Map<String, dynamic> json) =>
-      CheckedIn(
-        attendance: List<AttendanceRes>.from(
-            json["attendance"].map((x) => AttendanceRes.fromJson(x))),
+  factory CheckInTeacher.fromJson(Map<String, dynamic> json) =>
+      CheckInTeacher(
+        attendance: List<TeacherAttendanceRes>.from(
+            json["attendance"].map((x) => TeacherAttendanceRes.fromJson(x))),
       );
 
   Map<String, dynamic> toJson() => {
@@ -28,13 +28,13 @@ class CheckedIn {
       };
 }
 
-class AttendanceRes {
-  AttendanceRes({
+class TeacherAttendanceRes {
+  TeacherAttendanceRes({
     required this.checkinAt,
     required this.checkoutAt,
     required this.date,
     required this.updatedAt,
-    required this.student,
+    required this.teacher,
     required this.createdAt,
   });
 
@@ -42,16 +42,16 @@ class AttendanceRes {
   String checkoutAt;
   String date;
   DateTime updatedAt;
-  Student student;
+  Teacher teacher;
   DateTime createdAt;
 
-  factory AttendanceRes.fromJson(Map<String, dynamic> json) => AttendanceRes(
+  factory TeacherAttendanceRes.fromJson(Map<String, dynamic> json) => TeacherAttendanceRes(
         checkinAt: json["checkin_at"],
         createdAt: DateTime.parse(json["created_at"]),
         checkoutAt: json["checkout_at"] ?? '',
         date: json["date"],
         updatedAt: DateTime.parse(json["updated_at"]),
-        student: Student.fromJson(json["student"]),
+        teacher: Teacher.fromJson(json["teacher"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -60,34 +60,33 @@ class AttendanceRes {
         "date": date,
         "updated_at": updatedAt,
         "created_at": createdAt,
-        "student": student.toJson(),
+        "teacher": teacher.toJson(),
       };
 }
 
-class Student {
-  Student(
+class Teacher {
+  Teacher(
       {required this.firstName,
       required this.lastName,
       required this.otherNames,
       this.email,
       this.id,
-      this.studentCode});
+      this.teacherCode});
 
   String firstName;
   String lastName;
   dynamic otherNames;
   String? email;
   int? id;
-  String? studentCode;
   String? teacherCode;
 
-  factory Student.fromJson(Map<String, dynamic> json) => Student(
+  factory Teacher.fromJson(Map<String, dynamic> json) => Teacher(
         firstName: json["first_name"] ?? '',
         lastName: json["last_name"] ?? '',
         otherNames: json["other_names"]??'',
         email: json["email"],
         id: json["id"],
-        studentCode: json["student_code"] ?? '',
+        teacherCode: json["teacher_code"] ?? '',
         
       );
 
@@ -97,6 +96,6 @@ class Student {
         "other_names": otherNames,
         "email": email,
         "id": id,
-        "student_code": studentCode,
+        "teacher_code": teacherCode,
       };
 }

@@ -135,9 +135,7 @@ class _CheckInState extends State<CheckIn> {
                 Container(
                   color: Colors.white,
                   child: teacherController.isCheckInStudent.isFalse
-                      ? const LinearProgressIndicator(
-                          color: Colors.red,
-                        )
+                      ? const CircularProgressIndicator(color: Colors.red,)
                       : const SizedBox(
                           height: 20,
                         ),
@@ -204,9 +202,7 @@ class _CheckOutState extends State<CheckOut> {
                 Container(
                   color: Colors.white,
                   child: teacherController.isCheckInStudent.isFalse
-                      ? const LinearProgressIndicator(
-                          color: Colors.red,
-                        )
+                      ? const CircularProgressIndicator()
                       : const SizedBox(
                           height: 20,
                         ),

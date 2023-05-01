@@ -17,8 +17,8 @@ class _$TeachersService extends TeachersService {
   final definitionType = TeachersService;
 
   @override
-  Future<Response<dynamic>> checkIn(String accessToken, String studentCode) {
-    final $url = '/teachers/{teacher_code}/check-in';
+  Future<Response<dynamic>> checkIn(String accessToken, String teacherCode) {
+    final $url = '/teachers/${teacherCode}/check-in';
     final $headers = {
       'authorization': accessToken,
     };
@@ -28,8 +28,8 @@ class _$TeachersService extends TeachersService {
   }
 
   @override
-  Future<Response<dynamic>> checkOut(String accessToken, String studentCode) {
-    final $url = '/teachers/{teacher_code}/check-out';
+  Future<Response<dynamic>> checkOut(String accessToken, String teacherCode) {
+    final $url = '/teachers/${teacherCode}/check-out';
     final $headers = {
       'authorization': accessToken,
     };

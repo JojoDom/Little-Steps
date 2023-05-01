@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/models/checked_in_res.dart';
+import 'package:little_steps/models/checked_in_teachers_res.dart';
 import 'package:little_steps/services/attendance_service.dart';
 import 'package:little_steps/services/teachers_attendance_service.dart';
 import 'package:little_steps/utils/connectivity_service.dart';
@@ -105,12 +106,12 @@ class AttendanceController extends GetxController {
         .then((value) {
       if (value.isSuccessful) {
         try {
-          final checkedInTeachersRes = CheckedIn.fromJson(value.body);
+          final checkedInTeachersRes = CheckInTeacher.fromJson(value.body);
           presentTeachers.value = checkedInTeachersRes.attendance;
           isCheckedInTeacher(false);
         } catch (error, stackTrace) {
           logger.i(error);
-          logger.e(stackTrace);
+          logger.i(stackTrace);
         }
       } else {
         isCheckedInTeacher(false);
@@ -129,12 +130,12 @@ class AttendanceController extends GetxController {
     isCheckedOutTeacher(true);
     var accessToken =
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
-    await attendanceService
+    await teachersAttendanceService
         .getCheckedOut(accessToken, date: date)
         .then((value) {
       if (value.isSuccessful) {
         try {
-          final checkedOutTeachertRes = CheckedIn.fromJson(value.body);
+          final checkedOutTeachertRes = CheckInTeacher.fromJson(value.body);
           teacherGoneHome.value = checkedOutTeachertRes.attendance;
           isCheckedOutTeacher(false);
         } catch (error, stackTrace) {
