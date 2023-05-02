@@ -12,17 +12,20 @@ class TeachersListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final studentsController = Get.put(StudentsController());
     return Container(
       decoration: BoxDecoration( color: Colors.white, borderRadius: BorderRadius.circular(20)),
       margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: ListTile(
-        onTap: () => Get.to(TeachersDetails(teacher: teacher)),
-        leading: ProfilePicture(
-          name: '${teacher.firstName} ${teacher.lastName}',
-          fontsize: 12,
-          radius: 20,
-          count: 2,
+        onTap: () => Get.to(TeachersDetails(teacher: teacher), 
+        transition: Transition.rightToLeft, duration: const Duration(milliseconds: 800)),
+        leading: Hero(
+          tag: teacher.id,
+          child: ProfilePicture(
+            name: '${teacher.firstName} ${teacher.lastName}',
+            fontsize: 12,
+            radius: 20,
+            count: 2,
+          ),
         ),
         title: Text('${teacher.firstName} ${teacher.lastName}',
             style: Theme.of(context).textTheme.titleMedium!.copyWith(

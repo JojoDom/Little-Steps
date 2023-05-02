@@ -47,11 +47,14 @@ class TeachersDetails extends StatelessWidget {
           //  mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Center(
-              child: ProfilePicture(
-                name: '${teacher.firstName} ${teacher.lastName}',
-                fontsize: 20,
-                radius: 40,
-                count: 2,
+              child: Hero(
+                tag: teacher.id,
+                child: ProfilePicture(
+                  name: '${teacher.firstName} ${teacher.lastName}',
+                  fontsize: 20,
+                  radius: 40,
+                  count: 2,
+                ),
               ),
             ),
             const SizedBox(height: 20),
