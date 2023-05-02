@@ -115,12 +115,12 @@ class TeachersDetails extends StatelessWidget {
                     height: 40,
                     width: 40,
                     decoration: BoxDecoration(
-                        color: const Color(0XFFCBE7FF),
+                        color: const Color(0XFFFFD7D7),
                         borderRadius: BorderRadius.circular(10)),
                     child: const Center(
                       child: Icon(
                         Icons.phone,
-                        color: Color(0XFF1F96FF),
+                        color: Color(0XFFFF1818),
                       ),
                     ),
                   ),
