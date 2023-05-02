@@ -58,7 +58,7 @@ class TeachersController extends GetxController {
       } else {
         studentCheckOutFailed();
         isCheckInStudent(true);
-        Get.snackbar('Error', 'Failed to check in student',
+        Get.snackbar('Error', 'Failed to check out teacher',
             backgroundColor: Colors.red,
             duration: const Duration(milliseconds: 1000));
         

@@ -42,7 +42,7 @@ class TeacherAttendanceRes {
   String checkoutAt;
   String date;
   DateTime updatedAt;
-  Teacher teacher;
+  TeacherAttendance teacher;
   DateTime createdAt;
 
   factory TeacherAttendanceRes.fromJson(Map<String, dynamic> json) => TeacherAttendanceRes(
@@ -51,7 +51,7 @@ class TeacherAttendanceRes {
         checkoutAt: json["checkout_at"] ?? '',
         date: json["date"],
         updatedAt: DateTime.parse(json["updated_at"]),
-        teacher: Teacher.fromJson(json["teacher"]),
+        teacher: TeacherAttendance.fromJson(json["teacher"]),
       );
 
   Map<String, dynamic> toJson() => {
@@ -64,8 +64,8 @@ class TeacherAttendanceRes {
       };
 }
 
-class Teacher {
-  Teacher(
+class TeacherAttendance {
+  TeacherAttendance(
       {required this.firstName,
       required this.lastName,
       required this.otherNames,
@@ -80,7 +80,7 @@ class Teacher {
   int? id;
   String? teacherCode;
 
-  factory Teacher.fromJson(Map<String, dynamic> json) => Teacher(
+  factory TeacherAttendance.fromJson(Map<String, dynamic> json) => TeacherAttendance(
         firstName: json["first_name"] ?? '',
         lastName: json["last_name"] ?? '',
         otherNames: json["other_names"]??'',

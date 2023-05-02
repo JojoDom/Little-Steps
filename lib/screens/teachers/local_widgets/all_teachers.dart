@@ -5,6 +5,8 @@ import 'package:little_steps/controllers/teachers_controller.dart';
 import 'package:little_steps/screens/home/local_widgets/students_list_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
+import '../../home/local_widgets/teachers_list_item.dart';
+
 class AllTeachers extends StatefulWidget {
   const AllTeachers({Key? key}) : super(key: key);
 
