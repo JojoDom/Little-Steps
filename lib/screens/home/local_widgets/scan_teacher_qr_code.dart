@@ -110,6 +110,7 @@ class _CheckInState extends State<CheckIn> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Check In"),
         centerTitle: true,
@@ -133,7 +134,6 @@ class _CheckInState extends State<CheckIn> {
               children: [
                 SvgPicture.asset('assets/svgs/loading.svg'),
                 Container(
-                  color: Colors.white,
                   child: teacherController.isCheckInStudent.isFalse
                       ? const CircularProgressIndicator(color: Colors.red,)
                       : const SizedBox(
@@ -177,6 +177,7 @@ class _CheckOutState extends State<CheckOut> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         title: const Text("Check Out"),
         centerTitle: true,
@@ -200,9 +201,8 @@ class _CheckOutState extends State<CheckOut> {
               children: [ 
               SvgPicture.asset('assets/svgs/loading.svg'),
                 Container(
-                  color: Colors.white,
                   child: teacherController.isCheckInStudent.isFalse
-                      ? const CircularProgressIndicator()
+                      ? const CircularProgressIndicator(color: Colors.red,)
                       : const SizedBox(
                           height: 20,
                         ),
