@@ -4,7 +4,7 @@ import 'package:get/get.dart';
 import 'package:little_steps/screens/home/home.dart';
 import 'package:little_steps/widgets/custom_button.dart';
 
-studentCheckInSuccess() {
+studentCheckInSuccess(String message) {
   Get.defaultDialog(
     backgroundColor: Colors.white,
     barrierDismissible: false,
@@ -21,7 +21,7 @@ studentCheckInSuccess() {
             height: 25,
           ),
           Text(
-            'Check In Successful',
+            message,
             style: Theme.of(Get.context!)
                 .textTheme
                 .titleMedium!

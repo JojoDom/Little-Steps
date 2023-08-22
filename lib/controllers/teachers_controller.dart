@@ -33,16 +33,16 @@ class TeachersController extends GetxController {
     var accessToken =
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
     await teachersService.checkIn(accessToken, teacherCode).then((value) {
+      var responseBody = value.body;
       if (value.isSuccessful) {
         isCheckInStudent(true);
-        studentCheckInSuccess();
+        studentCheckInSuccess(responseBody["detail"]);
       } else {
         studentCheckInFailed();
         isCheckInStudent(false);
         Get.snackbar('Error', 'Failed to check in teacher',
             backgroundColor: Colors.red,
             duration: const Duration(milliseconds: 1000));
-        
       }
     });
   }
@@ -53,15 +53,15 @@ class TeachersController extends GetxController {
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
     await teachersService.checkOut(accessToken, teacherCode).then((value) {
       if (value.isSuccessful) {
+        var responseBody = value.body;
         isCheckInStudent(true);
-        studentCheckOutSuccess();
+        studentCheckOutSuccess(responseBody["detail"]);
       } else {
         studentCheckOutFailed();
         isCheckInStudent(true);
         Get.snackbar('Error', 'Failed to check out teacher',
             backgroundColor: Colors.red,
             duration: const Duration(milliseconds: 1000));
-        
       }
     });
   }

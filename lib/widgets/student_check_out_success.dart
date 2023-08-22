@@ -5,7 +5,7 @@ import 'package:little_steps/widgets/custom_button.dart';
 
 import '../screens/home/home.dart';
 
-studentCheckOutSuccess() {
+studentCheckOutSuccess(String message) {
   Get.defaultDialog(
     backgroundColor: Colors.white,
     barrierDismissible: false,
@@ -21,7 +21,7 @@ studentCheckOutSuccess() {
             height: 25,
           ),
           Text(
-            ' Check Out Successful',
+            message,
             style: Theme.of(Get.context!)
                 .textTheme
                 .titleMedium!
