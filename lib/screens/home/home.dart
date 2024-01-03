@@ -13,27 +13,13 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  final studentController = Get.put(StudentsController());
-  final TextEditingController searchController = TextEditingController();
-  final RefreshController _refreshController =
-      RefreshController(initialRefresh: false);
+  
   @override
   void initState() {
     super.initState();
   }
 
-  bool _isVisible = true;
-
-  void switchIcon() {
-    setState(() {
-      _isVisible = !_isVisible;
-    });
-  }
-
-  void _onRefresh() async {
-    await studentController.getStudent(studentCode: null);
-    _refreshController.refreshCompleted();
-  }
+ 
 
   @override
   Widget build(BuildContext context) {
@@ -54,7 +40,7 @@ class _HomeState extends State<Home> {
       body: 
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             //  color: const Color.fromARGB(255, 226, 203, 203),
           ),
           child: GridView.builder(

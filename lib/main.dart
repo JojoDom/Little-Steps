@@ -1,21 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:little_steps/screens/home/bloc/home_bloc.dart';
 import 'package:little_steps/screens/home/home.dart';
 import 'package:little_steps/utils/themes/themes.dart';
-import 'package:logging/logging.dart';
 
 void main() {
-  _setupLogging();
    WidgetsFlutterBinding.ensureInitialized();
   runApp(const MyApp());
 }
 
-void _setupLogging() {
-  Logger.root.level = Level.ALL;
-  Logger.root.onRecord.listen((rec) {
-    debugPrint('${rec.level.name} : ${rec.time}:${rec.message}');
-  });
-}
+
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
@@ -24,11 +19,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
-      title: ' ',
+    return MaterialApp(
+      title: 'Little Steps',
       theme: Themes().lightTheme,
       darkTheme: Themes().darkTheme,
-      home: const Home(),
+      home: BlocProvider(
+        create: (context) => HomeBloc(),
+        child: const Home(),),
     );
   }
 }
