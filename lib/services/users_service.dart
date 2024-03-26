@@ -1,5 +1,4 @@
 import 'package:chopper/chopper.dart';
-import 'package:flutter/material.dart';
 import 'package:little_steps/utils/strings.dart';
 
 part 'users_service.chopper.dart';
@@ -31,7 +30,7 @@ abstract class UsersService extends ChopperService {
 
   static UsersService create() {
     final client = ChopperClient(
-        baseUrl: Constants.BASE_URL,
+        baseUrl:  Uri.parse(Constants.BASE_URL),
         interceptors: [
           HttpLoggingInterceptor(),
         ],

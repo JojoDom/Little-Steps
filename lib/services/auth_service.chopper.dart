@@ -26,7 +26,7 @@ class _$AuthService extends AuthService {
 
     final $body = body;
     final $request =
-        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+        Request('POST', Uri.parse($url), client.baseUrl, body: $body, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -34,7 +34,7 @@ class _$AuthService extends AuthService {
   Future<Response<dynamic>> login(Map<String, dynamic> body) {
     final $url = '/auth/login';
     final $body = body;
-    final $request = Request('POST', $url, client.baseUrl, body: $body);
+    final $request = Request('POST', Uri.parse($url), client.baseUrl, body: $body);
     return client.send<dynamic, dynamic>($request);
   }
 }

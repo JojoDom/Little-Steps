@@ -17,7 +17,7 @@ abstract class AuthService extends ChopperService {
 
   static AuthService create() {
     final client = ChopperClient(
-        baseUrl: Constants.BASE_URL ,
+        baseUrl:  Uri.parse(Constants.BASE_URL),
         interceptors: [
           HttpLoggingInterceptor(),
         ],

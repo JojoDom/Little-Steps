@@ -24,7 +24,7 @@ class _$AttendanceService extends AttendanceService {
       'authorization': accessToken,
     };
 
-    final $request = Request('GET', $url, client.baseUrl,
+    final $request = Request('GET', Uri.parse($url), client.baseUrl,
         parameters: $params, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
@@ -37,7 +37,7 @@ class _$AttendanceService extends AttendanceService {
       'authorization': accessToken,
     };
 
-    final $request = Request('GET', $url, client.baseUrl,
+    final $request = Request('GET', Uri.parse($url), client.baseUrl,
         parameters: $params, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }

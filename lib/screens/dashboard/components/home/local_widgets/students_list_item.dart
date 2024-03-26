@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/students_controller.dart';
 import 'package:little_steps/models/student_list.dart';
-import 'package:little_steps/widgets/student_actions_bottomsheet.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 
 class StudentsListItem extends StatelessWidget {
@@ -20,7 +19,7 @@ class StudentsListItem extends StatelessWidget {
           studentsController.firstNameController.text = student.firstName;
           studentsController.idController.text = student.id.toString();
           studentsController.studentCodeController.text = student.studentCode;
-          StudentDetailsBottomSheet().studentDetails(student: student);
+          // StudentDetailsBottomSheet().studentDetails(student: student);
         },
         leading: ProfilePicture(
           name: '${student.firstName} ${student.lastName}',

@@ -55,11 +55,10 @@ class _ScanStudentQrCodeState extends State<ScanStudentQrCode> {
           ),
         ],
       ),
-      body: MobileScanner(
-        allowDuplicates: true,
-        controller: cameraController,
-        onDetect: _foundBarcode,
-      ),
+      // body: MobileScanner(
+      //   controller: cameraController,
+      //   onDetect: _foundBarcode,
+      // ),
     );
   }
 

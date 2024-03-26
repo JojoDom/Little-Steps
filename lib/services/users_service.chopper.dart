@@ -23,7 +23,7 @@ class _$UsersService extends UsersService {
       'authorization': accessToken,
     };
 
-    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    final $request = Request('GET', Uri.parse($url), client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -37,7 +37,7 @@ class _$UsersService extends UsersService {
 
     final $body = body;
     final $request =
-        Request('POST', $url, client.baseUrl, body: $body, headers: $headers);
+        Request('POST', Uri.parse($url), client.baseUrl, body: $body, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -48,7 +48,7 @@ class _$UsersService extends UsersService {
       'authorization': accessToken,
     };
 
-    final $request = Request('GET', $url, client.baseUrl, headers: $headers);
+    final $request = Request('GET', Uri.parse($url), client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -62,7 +62,7 @@ class _$UsersService extends UsersService {
 
     final $body = body;
     final $request =
-        Request('PUT', $url, client.baseUrl, body: $body, headers: $headers);
+        Request('PUT', Uri.parse($url), client.baseUrl, body: $body, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -73,7 +73,7 @@ class _$UsersService extends UsersService {
       'authorization': accessToken,
     };
 
-    final $request = Request('DELETE', $url, client.baseUrl, headers: $headers);
+    final $request = Request('DELETE', Uri.parse($url), client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 }
