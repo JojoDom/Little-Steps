@@ -1,0 +1,117 @@
+import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:little_steps/controllers/attendance_controller.dart';
+import 'package:little_steps/screens/attendance/local_widgets/checked_in_students.dart';
+import 'package:little_steps/screens/attendance/local_widgets/checked_out_students.dart';
+import 'package:little_steps/screens/teachers/local_widgets/checked_in_teachers.dart';
+import 'package:little_steps/screens/teachers/local_widgets/checked_out_teachers.dart';
+
+class Teachers extends StatefulWidget {
+  const Teachers({Key? key}) : super(key: key);
+
+  @override
+  State<Teachers> createState() => _TeachersState();
+}
+
+class _TeachersState extends State<Teachers> with TickerProviderStateMixin {
+  final attendanceController = Get.put(AttendanceController());
+  var currentTab = 0;
+
+  @override
+  void initState() {
+    attendanceController.tabController = TabController(length: 2, vsync: this);
+    attendanceController.tabController.addListener(() {
+       setState(() {
+        currentTab = attendanceController.tabController.index;
+      });
+    });
+    
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return DefaultTabController(
+        length: 2,
+        child: Scaffold(
+          backgroundColor: Colors.white,
+          appBar: AppBar(
+            elevation: 0,
+            backgroundColor: Colors.white,
+            leading: IconButton(onPressed: (()=>Get.back()), icon: const Icon(Icons.arrow_back_ios),color: Colors.red,),
+            centerTitle: true,
+            title: Text(
+              ' Teachers Attendance',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: Colors.black, fontSize: 18),
+            ),
+            bottom: PreferredSize(
+              preferredSize: const Size.fromHeight(50),
+              child: TabBar(
+                isScrollable: true,
+                indicatorColor: Colors.transparent,
+                controller: attendanceController.tabController,
+                tabs: [
+                 Container(
+                        width: 150,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: currentTab == 0 
+                              ? Theme.of(context).primaryColor
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Checked In',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                    color: currentTab == 0 
+                                           
+                                        ? Colors.white
+                                        : Colors.grey,
+                                    fontSize: 15),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: 150,
+                        height: 30,
+                        decoration: BoxDecoration(
+                          color: currentTab == 1 
+                              ? Theme.of(context).primaryColor
+                              : Colors.transparent,
+                          borderRadius: BorderRadius.circular(30),
+                        ),
+                        child: Center(
+                          child: Text(
+                            'Checked Out',
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium
+                                ?.copyWith(
+                                    color: currentTab == 1
+                                           
+                                        ? Colors.white
+                                        : Colors.grey,
+                                    fontSize: 15),
+                          ),
+                        ),
+                      ),
+              ]),
+            ),
+          ),
+          body: TabBarView(
+            controller: attendanceController.tabController,
+            children: const [
+              CheckedInTeachers(),
+              CheckedOutTeachers()
+            ]),
+        )
+        );
+  }
+}

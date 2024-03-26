@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/attendance_controller.dart';
-import 'package:little_steps/widgets/attendance_list_item.dart';
+import 'package:little_steps/widgets/student_attendance_list_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:intl/intl.dart';
 
@@ -126,7 +126,7 @@ class _CheckedInStudentsState extends State<CheckedInStudents> {
                                 physics: const AlwaysScrollableScrollPhysics(),
                                 shrinkWrap: true,
                                 itemBuilder: (context, index) =>
-                                    AttendanceListItems(
+                                    StudentAttendanceListItems(
                                         attendance: attendanceController
                                             .presentStudents[index], isCheckIn: true,),
                                 separatorBuilder: (context, index) =>

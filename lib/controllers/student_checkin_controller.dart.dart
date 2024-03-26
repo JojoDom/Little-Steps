@@ -26,15 +26,16 @@ class CheckInStudentController extends GetxController {
     var accessToken =
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
     await studentsService.checkIn(accessToken, studentCode).then((value) {
+      Logger().i(value.body);
+      var responseBody = value.body;
       if (value.isSuccessful) {
         isCheckInStudent(true);
-        studentCheckInSuccess();
+        studentCheckInSuccess(responseBody["detail"]);
       } else {
         studentCheckInFailed();
         Get.snackbar('Error', 'Failed to check in student',
-        backgroundColor: Colors.red,
-        duration: const Duration(milliseconds:1000 )
-        );
+            backgroundColor: Colors.red,
+            duration: const Duration(milliseconds: 1000));
         isCheckInStudent(false);
       }
     });
@@ -46,14 +47,14 @@ class CheckInStudentController extends GetxController {
         await secureStorage.read(key: StorageKeys.ACCESS_TOKEN) ?? '';
     await studentsService.checkOut(accessToken, studentCode).then((value) {
       if (value.isSuccessful) {
+        var responseBody = value.body;
         isCheckInStudent(true);
-        studentCheckOutSuccess();
+        studentCheckOutSuccess(responseBody["detail"]);
       } else {
         studentCheckOutFailed();
         Get.snackbar('Error', 'Failed to check in student',
-         backgroundColor: Colors.red,
-        duration: const Duration(milliseconds:1000 )
-        );
+            backgroundColor: Colors.red,
+            duration: const Duration(milliseconds: 1000));
         isCheckInStudent(true);
       }
     });

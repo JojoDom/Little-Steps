@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/screens/dashboard/dashboard.dart';
+import 'package:little_steps/screens/home/home.dart';
 import 'package:little_steps/widgets/custom_button.dart';
 
-studentCheckInSuccess() {
+studentCheckInSuccess(String message) {
   Get.defaultDialog(
     backgroundColor: Colors.white,
     barrierDismissible: false,
@@ -21,7 +21,7 @@ studentCheckInSuccess() {
             height: 25,
           ),
           Text(
-            'Student Check In Successful',
+            message,
             style: Theme.of(Get.context!)
                 .textTheme
                 .titleMedium!
@@ -35,7 +35,7 @@ studentCheckInSuccess() {
                 textColor: Colors.white,
                 buttonColor: Colors.green,
                 onTap: () {
-                  Get.offAll(const DashBoard());
+                  Get.offAll(const Home());
                 },
                 isBusy: false),
           )

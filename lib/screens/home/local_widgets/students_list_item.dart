@@ -3,6 +3,8 @@ import 'package:get/get.dart';
 import 'package:little_steps/controllers/students_controller.dart';
 import 'package:little_steps/models/student_list.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
+import 'package:little_steps/models/teachers_list.dart';
+import 'package:little_steps/widgets/student_actions_bottomsheet.dart';
 
 class StudentsListItem extends StatelessWidget {
   const StudentsListItem({Key? key, required this.student}) : super(key: key);
@@ -12,13 +14,14 @@ class StudentsListItem extends StatelessWidget {
   Widget build(BuildContext context) {
     final studentsController = Get.put(StudentsController());
     return Container(
-      margin:const EdgeInsets.symmetric(horizontal: 20),
+      decoration: BoxDecoration( color: Colors.white, borderRadius: BorderRadius.circular(20)),
+      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 5),
       child: ListTile(
         onTap: () {
           studentsController.surnameController.text = student.lastName;
           studentsController.firstNameController.text = student.firstName;
           studentsController.idController.text = student.id.toString();
-          studentsController.studentCodeController.text = student.studentCode;
+          studentsController.studentCodeController.text = student.studentCode??'';
           // StudentDetailsBottomSheet().studentDetails(student: student);
         },
         leading: ProfilePicture(
@@ -40,3 +43,6 @@ class StudentsListItem extends StatelessWidget {
     );
   }
 }
+
+
+

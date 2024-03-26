@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/screens/dashboard/dashboard.dart';
 import 'package:little_steps/utils/themes/themes.dart';
+
+import 'screens/home/home.dart';
 
 void main() {
    WidgetsFlutterBinding.ensureInitialized();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       title: ' ',
       theme: Themes().lightTheme,
       darkTheme: Themes().darkTheme,
-      home: const DashBoard(),
+      home: const Home(),
     );
   }
 }
