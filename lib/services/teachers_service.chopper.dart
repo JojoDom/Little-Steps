@@ -23,7 +23,7 @@ class _$TeachersService extends TeachersService {
       'authorization': accessToken,
     };
 
-    final $request = Request('POST', $url, client.baseUrl, headers: $headers);
+    final $request = Request('POST', Uri.parse($url), client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -34,7 +34,7 @@ class _$TeachersService extends TeachersService {
       'authorization': accessToken,
     };
 
-    final $request = Request('POST', $url, client.baseUrl, headers: $headers);
+    final $request = Request('POST', Uri.parse($url), client.baseUrl, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }
 
@@ -47,7 +47,7 @@ class _$TeachersService extends TeachersService {
       'authorization': accessToken,
     };
 
-    final $request = Request('GET', $url, client.baseUrl,
+    final $request = Request('GET', Uri.parse($url), client.baseUrl,
         parameters: $params, headers: $headers);
     return client.send<dynamic, dynamic>($request);
   }

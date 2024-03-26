@@ -57,11 +57,11 @@ class _ScanTeacherQrCodeState extends State<ScanTeacherQrCode> {
           ),
         ],
       ),
-      body: MobileScanner(
-        allowDuplicates: true,
-        controller: cameraController,
-        onDetect: _foundBarcode,
-      ),
+      // body: MobileScanner(
+      //   allowDuplicates: true,
+      //   controller: cameraController,
+      //   onDetect: _foundBarcode,
+      // ),
     );
   }
 
