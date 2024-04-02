@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_profile_picture/flutter_profile_picture.dart';
 import 'package:get/get.dart';
-import 'package:little_steps/screens/home/local_widgets/teacher_details.dart';
+import 'package:little_steps/screens/home/ui_components/teacher_details.dart';
 
 import '../../../controllers/students_controller.dart';
 import '../../../models/teachers_list.dart';

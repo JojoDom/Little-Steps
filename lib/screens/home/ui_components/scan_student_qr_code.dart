@@ -5,7 +5,7 @@ import 'package:little_steps/controllers/student_checkin_controller.dart.dart';
 import 'package:mobile_scanner/mobile_scanner.dart';
 
 class ScanStudentQrCode extends StatefulWidget {
-  const ScanStudentQrCode({Key? key, required this.isCheckIn}) : super(key: key);
+  const ScanStudentQrCode({super.key, required this.isCheckIn});
  final bool isCheckIn;
   @override
   State<ScanStudentQrCode> createState() => _ScanStudentQrCodeState();

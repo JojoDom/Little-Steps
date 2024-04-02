@@ -2,19 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/screens/attendance/attendance.dart';
-import 'package:little_steps/screens/home/local_widgets/scan_student_qr_code.dart';
+import 'package:little_steps/screens/home/ui_components/scan_student_qr_code.dart';
 import 'package:little_steps/screens/home/model/school_actions_modal.dart';
 import 'package:little_steps/screens/students/all_students.dart';
 import 'package:little_steps/screens/teachers/local_widgets/all_teachers.dart';
 import 'package:little_steps/screens/teachers/teachers.dart';
 
-import '../screens/home/local_widgets/scan_teacher_qr_code.dart';
+import 'scan_teacher_qr_code.dart';
 
 class SchoolActions extends StatelessWidget {
   const SchoolActions({
-    Key? key,
+    super.key,
     required this.schoolActions,
-  }) : super(key: key);
+  });
 
   final SchoolActionsModal schoolActions;
   @override
@@ -23,28 +23,29 @@ class SchoolActions extends StatelessWidget {
       onTap: () {
         switch (schoolActions.tag) {
           case 'checkInStudent':
-            Get.to(const ScanStudentQrCode(isCheckIn: true));
+            Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScanStudentQrCode(isCheckIn: true))));
             break;
           case 'checkOutStudent':
-            Get.to(const ScanStudentQrCode(isCheckIn: false));
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScanStudentQrCode(isCheckIn: false))));
             break;
           case 'checkInTeacher':
-            Get.to(const ScanTeacherQrCode(isCheckIn: true));
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScanTeacherQrCode(isCheckIn: true))));
             break;
           case 'checkOutTeacher':
-            Get.to(const ScanTeacherQrCode(isCheckIn: false));
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const ScanTeacherQrCode(isCheckIn: false))));
             break;
           case 'studentAttendance':
-            Get.to(const Attendance());
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const Attendance())));
             break;
           case 'teachersAttendance':
-            Get.to(const Teachers());
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const Teachers())));
             break;
           case 'allStudents':
-            Get.to(const AllStudents());
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const AllStudents())));
             break;
           case 'allTeachers':
             Get.to(const AllTeachers());
+             Navigator.push(context, MaterialPageRoute(builder: ((context) => const AllTeachers())));
         }
       },
       child: Card(

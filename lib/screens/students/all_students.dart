@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/students_controller.dart';
-import 'package:little_steps/screens/home/local_widgets/students_list_item.dart';
+import 'package:little_steps/screens/home/ui_components/students_list_item.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class AllStudents extends StatefulWidget {

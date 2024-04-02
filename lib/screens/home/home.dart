@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:little_steps/controllers/students_controller.dart';
 import 'package:little_steps/screens/home/model/school_actions_modal.dart';
-import 'package:little_steps/widgets/school_actions.dart';
+import 'package:little_steps/screens/home/ui_components/school_actions.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 
 class Home extends StatefulWidget {
@@ -18,9 +18,6 @@ class _HomeState extends State<Home> {
   void initState() {
     super.initState();
   }
-
- 
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
